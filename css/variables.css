@@ -1,0 +1,108 @@
+/* Kajaria Ceramics Design System Tokens */
+
+/* Custom Heading Font: Layfort */
+@font-face {
+  font-family: 'Layfort';
+  src: url('../assets/fonts/layfort-light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Layfort';
+  src: url('../assets/fonts/layfort-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Layfort';
+  src: url('../assets/fonts/layfort-regularitalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Layfort';
+  src: url('../assets/fonts/layfort-medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Layfort';
+  src: url('../assets/fonts/layfort-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Official Kajaria Brand Palette (from Brand Spec) */
+  --kj-primary: #15508B;          /* Kajaria Signature Blue */
+  --kj-primary-dark: #082038;     /* Deep Midnight Navy */
+  --kj-primary-light: #1f65ad;    /* Medium Blue Tint */
+  --kj-accent: #15508B;           /* Interactive Blue CTA */
+  --kj-accent-hover: #0e3b68;     /* Darker Blue Hover */
+  --kj-accent-subtle: #edf4fa;    /* Ice Blue / Soft Slate Tint */
+  --kj-gold: #A68740;             /* Kajaria Heritage Gold / Brass Accent */
+  --kj-gold-hover: #8e7335;
+  --kj-gold-subtle: #faf6ee;
+  --kj-slate: #C2CCD6;            /* Kajaria Soft Slate Mist */
+
+  /* Premium Stone & Neutral Palette */
+  --kj-surface: #ffffff;
+  --kj-surface-alt: #f8fafc;      /* Crisp Clean Surface */
+  --kj-surface-stone: #f1f5f9;    /* Light Tinted Surface */
+  --kj-border: #C2CCD6;           /* Slate Border from Brand Spec */
+  --kj-border-subtle: #e2e8f0;
+  --kj-border-strong: #94a3b8;
+
+  /* Typography Colors */
+  --kj-text-heading: #000000;     /* Pure Black from Brand Spec */
+  --kj-text-body: #1e293b;        /* Charcoal Neutral */
+  --kj-text-muted: #64748b;       /* Cool Muted */
+  --kj-text-light: #94a3b8;
+  --kj-text-inverse: #ffffff;
+
+  /* Semantic Feedback */
+  --kj-success: #059669;
+  --kj-success-bg: #ecfdf5;
+  --kj-warning: #d97706;
+  --kj-danger: #dc2626;
+
+  /* Typography Scales */
+  --font-heading: 'Layfort', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+
+  /* Elevation Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --shadow-dropdown: 0 14px 40px rgba(0, 20, 50, 0.15);
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 18px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --header-height: 110px;
+  --header-height-mobile: 64px;
+  --container-max: 1360px;
+  --container-padding: 24px;
+}
