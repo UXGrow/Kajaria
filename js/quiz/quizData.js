@@ -75,7 +75,7 @@ export const QUIZ_STEPS_CONFIG = [
         id: 'outdoor',
         label: 'Balcony / Outdoor Area',
         desc: 'Weather-exposed terraces, verandas & poolside patios',
-        image: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80',
+        image: 'assets/images/quiz/tile-terracotta-patio.jpg',
         icon: '🌿'
       },
       {
@@ -190,14 +190,14 @@ export const QUIZ_STEPS_CONFIG = [
         id: 'warm-natural',
         label: 'Warm & Natural',
         desc: 'Earthy textures, organic grain, and welcoming hospitality tones that soothe.',
-        image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80',
+        image: 'assets/images/quiz/tile-terracotta-patio.jpg',
         paletteTag: 'Honeyed Travertine, Desert Beige, Warm Oak'
       },
       {
         id: 'elegant-refined',
         label: 'Elegant & Refined',
         desc: 'Timeless Italian marble veins, silk polished luster, and architectural grandeur.',
-        image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80',
+        image: 'assets/images/quiz/tile-green-octagon.jpg',
         paletteTag: 'Calacatta Gold, Statuary White, Silk Polished'
       },
       {
@@ -291,7 +291,7 @@ export const QUIZ_STEPS_CONFIG = [
         label: 'Stone-inspired',
         tagline: 'Natural mineral variation',
         desc: 'Subtle pore patterns, sedimentary limestone, and organic mineral flakes with gentle tactile relief.',
-        image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80'
+        image: 'assets/images/quiz/tile-green-octagon.jpg'
       },
       {
         id: 'wood',
@@ -679,6 +679,50 @@ export const QUIZ_CATALOG_DATA = [
     image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80',
     swatch: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=200&q=80',
     whyFits: 'Gentle satin sheen without distracting harsh glare. Maximizes diffused light in smaller spaces while remaining exceptionally easy to wipe clean.'
+  },
+  {
+    id: 'cotto-terracotta-patio',
+    name: 'Cotto Terracotta Patio',
+    collection: 'DuRock Heritage',
+    category: 'Full Body Vitrified',
+    typeBadge: 'FLOOR TILE · OUTDOOR R11',
+    size: '60 x 60 cm',
+    thickness: '12 mm',
+    finish: 'Rustic Matt Relief',
+    surface: 'Stone',
+    surfaceDetail: 'Earthy Spanish Terracotta & Geometric Medallions',
+    color: 'Brown',
+    colorHex: '#B45339',
+    waterAbsorption: '< 0.03%',
+    slipRating: 'R11',
+    application: ['floor'],
+    spaces: ['outdoor', 'commercial', 'living-room'],
+    mood: ['warm-natural', 'bold-expressive'],
+    image: 'assets/images/quiz/tile-terracotta-patio.jpg',
+    swatch: 'assets/images/quiz/tile-terracotta-patio.jpg',
+    whyFits: 'All-weather R11 vitrified terracotta body engineered for sun-drenched verandas and rain-washed courtyards with rich earthen warmth.'
+  },
+  {
+    id: 'statuario-octagon-verde',
+    name: 'Statuario Octagon Verde',
+    collection: 'The Ultima Atelier',
+    category: 'Glazed Vitrified Tiles',
+    typeBadge: 'FLOOR TILE · WALL TILE',
+    size: '60 x 120 cm',
+    thickness: '9 mm',
+    finish: 'Satin Carving',
+    surface: 'Stone',
+    surfaceDetail: 'Octagonal Carrara Stone with Deep Emerald Inserts',
+    color: 'Grey',
+    colorHex: '#8C92AC',
+    waterAbsorption: '< 0.05%',
+    slipRating: 'R10',
+    application: ['floor', 'wall'],
+    spaces: ['bathroom', 'living-room', 'bedroom'],
+    mood: ['elegant-refined', 'calm-minimal'],
+    image: 'assets/images/quiz/tile-green-octagon.jpg',
+    swatch: 'assets/images/quiz/tile-green-octagon.jpg',
+    whyFits: 'Architectural octagonal geometry with emerald quartz cabochons brings heritage Mediterranean dignity to bathroom and living floors.'
   }
 ];
 
