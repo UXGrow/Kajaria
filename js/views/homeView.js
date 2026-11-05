@@ -466,7 +466,9 @@ export function renderHomeView(container) {
     container.querySelectorAll('.tool-home-trigger').forEach(btn => {
       btn.addEventListener('click', () => {
         const tool = btn.dataset.tool;
-        if (tool === 'tile-calculator') {
+        if (tool === 'tile-quiz') {
+          window.location.hash = '#tile-quiz';
+        } else if (tool === 'tile-calculator') {
           store.setModal('calculator', true);
         } else if (tool === '3d-visualiser' || tool === 'view-in-room') {
           store.setModal('visualiser', true);

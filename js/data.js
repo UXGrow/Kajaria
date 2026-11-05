@@ -516,6 +516,14 @@ export const CATALOGUES = [
 
 export const TOOLS_LIST = [
   {
+    id: 'tile-quiz',
+    name: 'Tile Quiz & Design Assistant',
+    badge: 'AI Design Matcher',
+    icon: 'sparkles',
+    description: 'Unsure where to begin? Answer a few everyday lifestyle questions to receive a tailored tile palette, finish, and wall-floor pairing.',
+    actionLabel: 'Take Tile Quiz'
+  },
+  {
     id: 'view-in-room',
     name: 'View in Room',
     badge: 'Augmented Reality',

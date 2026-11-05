@@ -11,6 +11,7 @@ import { renderPLPView } from './views/plpView.js';
 import { renderPDPView } from './views/pdpView.js';
 import { renderWTBView } from './views/wtbView.js';
 import { renderCataloguesView } from './views/cataloguesView.js';
+import { renderQuizView } from './views/quizView.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const appMain = document.getElementById('app-main');
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   router.register('product-detail', (params) => renderPDPView(appMain, params));
   router.register('where-to-buy', () => renderWTBView(appMain));
   router.register('catalogues', () => renderCataloguesView(appMain));
+  router.register('tile-quiz', () => renderQuizView(appMain));
 
   // Start routing
   router.init();

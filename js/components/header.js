@@ -236,7 +236,7 @@ function renderHeader(container) {
                   <!-- Need help choosing banner -->
                   <div class="mega-help-banner">
                     <span class="help-label">Need help choosing?</span>
-                    <a href="#products?space=bathroom" class="help-link">Find your tiles →</a>
+                    <a href="#tile-quiz" class="help-link">Take the Tile Quiz →</a>
                   </div>
                 </div>
 
@@ -477,6 +477,7 @@ function renderHeader(container) {
                 Planning & Visualisation Tools
               </div>
               <ul class="mega-link-list">
+                <li><a href="#tile-quiz" class="mega-link" style="color: var(--kj-primary); font-weight: 700;">✨ Tile Quiz & Design Assistant <span style="font-size: 0.68rem; padding: 2px 6px; background: #e0f2fe; color: #0284c7; border-radius: 4px; font-weight: 800; margin-left: 6px;">NEW</span> <span>›</span></a></li>
                 <li><a href="#" class="mega-link tool-trigger" data-tool="view-in-room">View in Room (AR) <span>›</span></a></li>
                 <li><a href="#" class="mega-link tool-trigger" data-tool="3d-visualiser">3D Tile Visualiser <span>›</span></a></li>
                 <li><a href="#" class="mega-link tool-trigger" data-tool="tile-calculator">Tile Calculator <span>›</span></a></li>
@@ -602,6 +603,11 @@ function renderHeader(container) {
         </div>
 
         <ul class="mobile-drawer-menu">
+          <li class="mobile-menu-item" style="background: rgba(21, 80, 139, 0.08); border-radius: 6px; margin: 4px 0;">
+            <a href="#tile-quiz" class="mobile-menu-link drawer-nav-link" style="color: var(--kj-primary); font-weight: 700;">
+              ✨ Tile Quiz (Design Assistant) <span style="font-size: 0.68rem; padding: 2px 6px; background: #e0f2fe; color: #0284c7; border-radius: 4px; font-weight: 800;">NEW</span> <span>›</span>
+            </a>
+          </li>
           <li class="mobile-menu-item">
             <a href="#home" class="mobile-menu-link drawer-nav-link">Home <span>›</span></a>
           </li>
