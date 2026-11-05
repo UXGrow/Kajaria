@@ -125,6 +125,7 @@ The prototype implements the end-to-end connected golden journey:
 6. **Unified Tools Demonstrators**:
    - **Interactive Tile Calculator**: Computes room area (sq ft / sq m), tile dimensions, wastage %, and exact box requirements.
    - **360° Interactive Visualiser**: Interactive room/tile view.
+   - **Tile Quiz & Design Assistant (`#tile-quiz`)**: 8-step rules-based design assistant that translates non-technical room preferences into verified Kajaria product palettes, coordinated wall-and-floor combinations, editable answer chips, in-page dealer lookup, assisted enquiries, and print-ready PDF specification sheets.
 7. **Where to Buy & Assisted Enquiry**:
    - City and PIN code store search
    - Filter by store type (Experience Centre, Showroom, Dealer)
