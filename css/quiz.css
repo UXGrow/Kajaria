@@ -4,7 +4,7 @@
 .quiz-page-container {
   min-height: calc(100vh - var(--header-height));
   background: #f1f5f9;
-  padding: 40px 20px 80px;
+  padding: 40px 20px 140px;
   position: relative;
 }
 
@@ -49,7 +49,7 @@
    ========================================================= */
 .quiz-stage-panel {
   position: relative;
-  background-color: var(--kj-primary-dark);
+  background-color: #0b0f19;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -62,15 +62,15 @@
   transition: background-image 0.5s ease-in-out;
 }
 
-/* Luxury Midnight Gradient Overlay */
+/* Translucent Charcoal & Black Scrim Overlay — High Visibility for Background Tile Photography */
 .quiz-stage-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(8, 32, 56, 0.88) 0%,
-    rgba(21, 80, 139, 0.75) 50%,
-    rgba(8, 32, 56, 0.92) 100%
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.22) 42%,
+    rgba(0, 0, 0, 0.78) 100%
   );
   z-index: 1;
 }
@@ -138,13 +138,15 @@
   color: #ffffff;
   margin-bottom: 16px;
   font-weight: 500;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
 }
 
 .quiz-stage-subtext {
   font-size: 0.92rem;
-  color: #cbd5e1;
+  color: #f1f5f9;
   line-height: 1.6;
   max-width: 380px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65);
 }
 
 /* Real-time Dossier Tracker Pill */
@@ -166,18 +168,19 @@
   color: #ffffff;
 }
 
-/* Glassmorphism Floating Tile Preview at bottom of stage */
+/* Dark Frosted Glassmorphism Floating Tile Preview at bottom of stage */
 .stage-floating-card {
-  background: rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.52);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 16px;
   padding: 12px 16px;
   display: flex;
   align-items: center;
   gap: 14px;
   margin-top: auto;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .stage-card-thumb {
