@@ -322,64 +322,34 @@ export function renderHomeView(container) {
         </div>
       </section>
 
-      <!-- 5. Interactive Inspiration Lookbook (Multi-Scroll Carousel — Slide 31) -->
+      <!-- 5. Curated Spaces & Architectural Lookbook (Centered Carousel with Annotations) -->
       <section class="lookbook-section" id="lookbook">
         <div class="container">
-          <div class="section-intro lookbook-intro">
-            <div class="lookbook-intro-header">
-              <div>
-                <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--kj-accent);">Interactive Inspiration</span>
-                <h2 class="section-title">Curated Spaces & Architectural Lookbook</h2>
-                <p class="section-desc">
-                  Explore Kajaria UniTerra bespoke sintered slabs in luxury architectural environments. Hover over interactive hotspots to reveal exact tile pairings and technical specifications.
-                </p>
-              </div>
-              <!-- Carousel Controls (Prev/Next & Counter) -->
-              <div class="lookbook-controls">
-                <button class="lookbook-nav-btn lookbook-prev" aria-label="Previous Look" type="button">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                </button>
-                <div class="lookbook-counter">
-                  <span class="lookbook-current-idx">01</span>
-                  <span class="lookbook-counter-sep">/</span>
-                  <span class="lookbook-total-idx">03</span>
-                </div>
-                <button class="lookbook-nav-btn lookbook-next" aria-label="Next Look" type="button">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
-              </div>
-            </div>
-
-            <!-- Tab / Lookbook Pills Navigation -->
-            <div class="lookbook-tabs-nav" role="tablist">
-              ${LOOKBOOKS.map((lb, i) => `
-                <button class="lookbook-tab-pill ${i === 0 ? 'active' : ''}" data-index="${i}" type="button" role="tab">
-                  <span class="lb-pill-num">${lb.index}</span>
-                  <span class="lb-pill-title">${lb.title}</span>
-                  <span class="lb-pill-space">· ${lb.spaceName}</span>
-                </button>
-              `).join('')}
-            </div>
+          <div class="section-intro" style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+            <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--kj-accent);">Interactive Inspiration</span>
+            <h2 class="section-title">Curated Spaces & Architectural Lookbook</h2>
+            <p class="section-desc">
+              Explore Kajaria UniTerra bespoke sintered surfaces in luxury spaces. Hover over the interactive hotspots on the spread to view technical specifications.
+            </p>
           </div>
 
-          <!-- Multi-Scroll Carousel Viewport & Track -->
-          <div class="lookbook-carousel-viewport" id="lookbook-viewport">
-            <div class="lookbook-carousel-track" id="lookbook-track">
-              ${LOOKBOOKS.map((lb, i) => `
-                <div class="lookbook-slide" data-index="${i}" id="lookbook-slide-${lb.id}">
-                  <!-- Left: Curated Architectural Room Scene -->
-                  <div class="lookbook-scene-stage">
-                    <!-- Space View (Cropped Room with interactive hotspots) -->
-                    <div class="lookbook-room-view active" id="lb-room-${lb.id}">
-                      <img src="${lb.roomImg}" alt="${lb.title} in ${lb.spaceName}" class="lookbook-room-img" loading="lazy" />
-                      
-                      <!-- UniTerra Watermark Badge -->
-                      <div class="lookbook-brand-badge">
-                        <span class="lb-uniterra-mark">UNI TERRA</span>
-                        <span class="lb-uniterra-sub">Bespoke Sintered Surfaces</span>
-                      </div>
+          <!-- Centered Carousel Container with Left/Right Arrows -->
+          <div class="lookbook-carousel-container">
+            <button class="lookbook-arrow-btn lookbook-arrow-prev" id="lookbook-prev-btn" aria-label="Previous Look" type="button">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="lookbook-arrow-btn lookbook-arrow-next" id="lookbook-next-btn" aria-label="Next Look" type="button">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
 
-                      <!-- Interactive Hotspots on the Space -->
+            <div class="lookbook-viewport">
+              <div class="lookbook-track" id="lookbook-track">
+                ${LOOKBOOKS.map((lb, i) => `
+                  <div class="lookbook-card" data-index="${i}">
+                    <div class="lookbook-media-wrap">
+                      <img src="${lb.spreadImg}" alt="${lb.title} Sintered Surface Lookbook" class="lookbook-media-img" loading="lazy" />
+
+                      <!-- Interactive Hotspots directly on the image -->
                       ${lb.hotspots.map(h => `
                         <div class="lookbook-hotspot" style="top: ${h.y}%; left: ${h.x}%;" data-tile="${h.tile}">
                           <div class="hotspot-pulse"></div>
@@ -389,100 +359,50 @@ export function renderHomeView(container) {
                               <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
                           </div>
-                          <!-- Hotspot Popover Tooltip -->
+                          <!-- Hotspot Popover -->
                           <div class="lookbook-popover">
                             <div class="popover-role">${h.title}</div>
                             <div class="popover-tile-name">${h.tile}</div>
                             <div class="popover-tile-detail">${h.detail}</div>
                             <a href="#product-detail?id=${lb.productId}" class="btn btn-primary btn-sm popover-cta">
-                              View Tile Details →
+                              View Product Details →
                             </a>
                           </div>
                         </div>
                       `).join('')}
 
-                      <!-- Room Bottom Spec Caption -->
-                      <div class="lookbook-room-caption">
-                        <span>${lb.caption}</span>
-                      </div>
-                    </div>
-
-                    <!-- Catalogue Spread View (Full brochure page uploaded by user) -->
-                    <div class="lookbook-spread-view" id="lb-spread-${lb.id}">
-                      <img src="${lb.spreadImg}" alt="${lb.title} Official Catalogue Spread" class="lookbook-spread-img" loading="lazy" />
-                    </div>
-
-                    <!-- View Switcher Toggle: Room Scene vs Official Spread -->
-                    <div class="lookbook-view-toggle">
-                      <button class="lb-toggle-btn active" data-target="lb-room-${lb.id}" data-hide="lb-spread-${lb.id}" type="button">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="0"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                        <span>Room Scene</span>
-                      </button>
-                      <button class="lb-toggle-btn" data-target="lb-spread-${lb.id}" data-hide="lb-room-${lb.id}" type="button">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-                        <span>Official Spread</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Right: Authentic Linked Product Card -->
-                  <div class="lookbook-product-card">
-                    <div class="lb-card-header">
-                      <div class="lb-card-brand-row">
-                        <span class="lb-brand-tag">Kajaria UniTerra</span>
-                        <span class="lb-brand-coll">Sintered Surfaces</span>
-                      </div>
-                      <h3 class="lb-card-title">${lb.title}</h3>
-                      <p class="lb-card-subtitle">${lb.subtitle}</p>
-                    </div>
-
-                    <!-- Slab & Mosaics Visual Split -->
-                    <div class="lb-card-visual-row">
-                      <div class="lb-slab-preview">
-                        <img src="${lb.slabImg}" alt="${lb.title} Slab" class="lb-slab-img" />
-                        <span class="lb-slab-badge">1190 x 2800 mm</span>
-                      </div>
-                      <div class="lb-card-subspecs">
-                        <div class="lb-spec-block">
-                          <span class="lb-spec-lbl">Thickness</span>
-                          <span class="lb-spec-val">${lb.specs.thickness}</span>
+                      <!-- Floating Bottom Product Annotation Bar -->
+                      <div class="lookbook-bottom-annotation">
+                        <div class="annotation-text">
+                          <div class="annotation-eyebrow">Look ${lb.index} of 03 · ${lb.spaceName}</div>
+                          <h3 class="annotation-title">${lb.title}</h3>
+                          <div class="annotation-specs">${lb.specs.size} · ${lb.specs.thickness} · ${lb.specs.finish} · ${lb.specs.bodyType}</div>
                         </div>
-                        <div class="lb-spec-block">
-                          <span class="lb-spec-lbl">Finish</span>
-                          <span class="lb-spec-val">${lb.specs.finish}</span>
+                        <div class="annotation-actions">
+                          <a href="#product-detail?id=${lb.productId}" class="btn btn-primary btn-sm">
+                            View Product Details →
+                          </a>
+                          <button class="btn btn-secondary btn-sm tool-home-trigger" data-tool="3d-visualiser" type="button">
+                            📱 View in Room (AR)
+                          </button>
                         </div>
-                        <div class="lb-spec-block">
-                          <span class="lb-spec-lbl">Body Type</span>
-                          <span class="lb-spec-val">${lb.specs.bodyType}</span>
-                        </div>
-                        <div class="lb-spec-block">
-                          <span class="lb-spec-lbl">Faces</span>
-                          <span class="lb-spec-val">${lb.specs.faces}</span>
-                        </div>
-                        <div class="lb-spec-block">
-                          <span class="lb-spec-lbl">Mosaics</span>
-                          <span class="lb-spec-val">${lb.specs.mosaics}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Action Bar -->
-                    <div class="lb-card-actions">
-                      <a href="#product-detail?id=${lb.productId}" class="btn btn-primary btn-sm lb-btn-main">
-                        View Product Details →
-                      </a>
-                      <div class="lb-btn-row">
-                        <button class="btn btn-secondary btn-sm tool-home-trigger" data-tool="3d-visualiser" type="button">
-                          📱 View in Room (AR)
-                        </button>
-                        <button class="btn btn-secondary btn-sm lb-enquire-btn" data-tile="${lb.title}" type="button">
-                          ✉️ Request Sample
-                        </button>
                       </div>
                     </div>
                   </div>
-                </div>
-              `).join('')}
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- Slide Indicator Dots & Counter Below Stage -->
+            <div class="lookbook-pagination">
+              <div class="lookbook-dots">
+                ${LOOKBOOKS.map((_, i) => `
+                  <span class="lb-dot ${i === 0 ? 'active' : ''}" data-index="${i}" role="button" tabindex="0"></span>
+                `).join('')}
+              </div>
+              <div class="lookbook-slide-counter">
+                <span class="lb-current-num">01</span> / 03
+              </div>
             </div>
           </div>
         </div>
@@ -952,16 +872,16 @@ export function renderHomeView(container) {
       });
     }
 
-    // Lookbook Multi-Scroll Carousel Controller
+    // Centered Lookbook Carousel Controller
     const lookbookSection = container.querySelector('#lookbook');
     if (lookbookSection) {
       let currentLbIdx = 0;
       const totalLb = LOOKBOOKS.length;
       const track = lookbookSection.querySelector('#lookbook-track');
-      const tabs = lookbookSection.querySelectorAll('.lookbook-tab-pill');
-      const counterIdx = lookbookSection.querySelector('.lookbook-current-idx');
-      const prevBtn = lookbookSection.querySelector('.lookbook-prev');
-      const nextBtn = lookbookSection.querySelector('.lookbook-next');
+      const dots = lookbookSection.querySelectorAll('.lb-dot');
+      const counterIdx = lookbookSection.querySelector('.lb-current-num');
+      const prevBtn = lookbookSection.querySelector('#lookbook-prev-btn');
+      const nextBtn = lookbookSection.querySelector('#lookbook-next-btn');
 
       function updateLookbook(index) {
         currentLbIdx = (index + totalLb) % totalLb;
@@ -971,8 +891,8 @@ export function renderHomeView(container) {
         if (counterIdx) {
           counterIdx.textContent = String(currentLbIdx + 1).padStart(2, '0');
         }
-        tabs.forEach((tab, i) => {
-          tab.classList.toggle('active', i === currentLbIdx);
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentLbIdx);
         });
       }
 
@@ -982,37 +902,34 @@ export function renderHomeView(container) {
       if (nextBtn) {
         nextBtn.addEventListener('click', () => updateLookbook(currentLbIdx + 1));
       }
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const idx = parseInt(tab.dataset.index, 10);
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const idx = parseInt(dot.dataset.index, 10);
           updateLookbook(idx);
         });
       });
 
-      // View Switcher Toggles (Room Scene vs Official Spread)
-      lookbookSection.querySelectorAll('.lb-toggle-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const parent = btn.closest('.lookbook-scene-stage');
-          if (!parent) return;
-          parent.querySelectorAll('.lb-toggle-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
+      // Swipe support on carousel
+      let startX = 0;
+      let isDragging = false;
+      const viewport = lookbookSection.querySelector('.lookbook-viewport');
+      if (viewport) {
+        viewport.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          isDragging = true;
+        }, { passive: true });
 
-          const targetId = btn.dataset.target;
-          const hideId = btn.dataset.hide;
-          const targetEl = parent.querySelector(`#${targetId}`);
-          const hideEl = parent.querySelector(`#${hideId}`);
-          if (targetEl) targetEl.classList.add('active');
-          if (hideEl) hideEl.classList.remove('active');
-        });
-      });
-
-      // Specifier Sample Enquiry Buttons
-      lookbookSection.querySelectorAll('.lb-enquire-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const tile = btn.dataset.tile;
-          store.setModal('enquiry', true, { tile: tile, source: 'Architectural Lookbook' });
-        });
-      });
+        viewport.addEventListener('touchend', (e) => {
+          if (!isDragging) return;
+          isDragging = false;
+          const endX = e.changedTouches[0].clientX;
+          const diff = startX - endX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0) updateLookbook(currentLbIdx + 1);
+            else updateLookbook(currentLbIdx - 1);
+          }
+        }, { passive: true });
+      }
     }
 
     startAutoSlide();
