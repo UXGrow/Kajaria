@@ -126,7 +126,7 @@ export const COLLECTIONS = [
     query: 'UniTerra',
     tagline: 'Large-Format Sintered Slabs',
     description: 'Precision-engineered large-format slabs with authentic Italian marble veining.',
-    img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&h=1200&q=85'
+    img: 'https://www.kajariaceramics.com/storage/product_attributes/unitera.avif?v=1788864823'
   },
   {
     id: 'the-ultima',
@@ -134,7 +134,7 @@ export const COLLECTIONS = [
     query: 'The Ultima',
     tagline: 'Grand Architectural Slabs',
     description: 'Extra-large format vitrified surfaces for seamless indoor and outdoor transitions.',
-    img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&h=1200&q=85'
+    img: 'https://www.kajariaceramics.com/storage/product_attributes/eternity-1.avif?v=1788864861'
   },
   {
     id: 'vitronite',
@@ -142,7 +142,7 @@ export const COLLECTIONS = [
     query: 'Vitronite',
     tagline: 'Full-Body Kitchen Slabs',
     description: '15mm continuous full-body vitrified slabs crafted for heavy-duty kitchen countertops.',
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=1200&q=85'
+    img: 'https://www.kajariaceramics.com/storage/product_attributes/vitronite.avif?v=1788864883'
   },
   {
     id: 'grestough',
@@ -150,7 +150,23 @@ export const COLLECTIONS = [
     query: 'Grestough',
     tagline: 'Heavy-Duty Digital Ceramic',
     description: 'High-strength load-bearing surfaces built for high-traffic corridors and commercial spaces.',
-    img: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&h=1200&q=85'
+    img: 'https://www.kajariaceramics.com/storage/product_attributes/grestough.avif?v=1788864908'
+  },
+  {
+    id: 'kasamood',
+    name: 'KASAMOOD',
+    query: 'Kasamood',
+    tagline: 'Designer Contemporary Surfaces',
+    description: 'Trendsetting designer tiles crafted to elevate modern interior moods and aesthetics.',
+    img: 'https://www.kajariaceramics.com/storage/product_attributes/kasamood.avif?v=1788864938'
+  },
+  {
+    id: 'duratech',
+    name: 'DURATECH',
+    query: 'Duratech',
+    tagline: 'High-Performance Heavy Duty',
+    description: 'Heavy-duty technical vitrified tiles engineered for extreme load and durability.',
+    img: 'https://www.kajariaceramics.com/storage/product_attributes/duratech-1.avif?v=1788864964'
   },
   {
     id: 'durock',
@@ -158,7 +174,7 @@ export const COLLECTIONS = [
     query: 'DuRock',
     tagline: 'All-Weather Slip-Resistant Outdoor Slabs',
     description: 'Certified R11 outdoor pavers engineered to endure extreme weather and heavy footfalls.',
-    img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&h=1200&q=85'
+    img: 'https://www.kajariaceramics.com/storage/product_attributes/durock-1.avif?v=1788864989'
   }
 ];
 

@@ -549,7 +549,7 @@
    ========================================================================== */
 .collections-scroll-container {
   position: relative;
-  height: 280vh;
+  height: 350vh;
   background-color: var(--kj-surface);
   border-top: 1px solid var(--kj-border-subtle);
 }
@@ -1489,7 +1489,7 @@
   }
 
   .collections-scroll-container {
-    height: 240vh;
+    height: 300vh;
   }
 
   .collections-sticky-wrapper {
@@ -1559,7 +1559,7 @@
   }
 
   .collections-scroll-container {
-    height: 220vh;
+    height: 260vh;
   }
 
   .collections-sticky-wrapper {
