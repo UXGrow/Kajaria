@@ -297,7 +297,7 @@ export function renderHomeView(container) {
         { name: 'Carved & Relief', desc: 'Three-dimensional micro-textures with depth', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=400&q=80' }
       ];
       return `
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 36px;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 36px;">
           ${finishes.map(f => `
             <div class="space-card-home" onclick="window.location.hash='#products'">
               <div class="space-card-img-wrap">

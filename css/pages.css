@@ -322,15 +322,15 @@
 .spaces-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 12px;
   margin-bottom: 40px;
 }
 
 .space-card-home {
   background: var(--kj-surface);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   overflow: hidden;
-  border: 1px solid var(--kj-border-subtle);
+  border: none;
   display: flex;
   flex-direction: column;
   transition: all var(--transition-normal);
@@ -338,9 +338,8 @@
 }
 
 .space-card-home:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  border-color: var(--kj-border-strong);
 }
 
 .space-card-home:focus-visible {
@@ -352,6 +351,7 @@
   width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
+  border-radius: 0;
   background-color: var(--kj-surface-stone);
 }
 
@@ -1142,7 +1142,7 @@
 @media (max-width: 1024px) {
   .spaces-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
   }
 
   .tools-hub-grid {
@@ -1173,6 +1173,7 @@
 @media (max-width: 640px) {
   .spaces-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .tools-hub-grid {
