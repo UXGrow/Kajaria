@@ -760,122 +760,124 @@ export const TOOLS_LIST = [
 
 export const LOOKBOOKS = [
   {
-    id: 'calacutta-gold',
+    id: 'lithico-beige',
     index: '01',
-    title: 'Calacutta Gold',
-    subtitle: 'Bespoke Sintered Surfaces · Hospitality Suite',
-    spaceName: 'Grand Cocktail Lounge & Bar',
-    spreadImg: 'assets/images/lookbook/calacutta-gold-spread.jpg',
-    roomImg: 'assets/images/lookbook/cropped/calacutta-room.jpg',
-    slabImg: 'assets/images/lookbook/cropped/calacutta-slab.jpg',
-    caption: 'CALACUTTA GOLD BEYOND | 1190X2800 | 5.5 MM',
-    productId: 'calacutta-gold',
+    title: 'Lithico Beige & Natural Strata',
+    subtitle: 'Bespoke Sintered Surfaces · Minimalist Sanctuary',
+    spaceName: 'Minimalist Architectural Salon',
+    spreadImg: 'assets/images/lookbook/lookbook-minimalist-lounge.jpg',
+    caption: 'LITHICO BEIGE BEYOND | 1190X2400 MM | 9 MM MATT',
+    productId: 'lithico-beige',
     brand: 'UniTerra',
     brandTagline: 'Bespoke Sintered Surfaces',
     specs: {
-      size: '1190 x 2800 mm',
-      thickness: '5.5 mm Ultra-Slim',
-      finish: 'Beyond Finish (DG M-Tech Dry Granula)',
+      size: '1190 x 2400 mm Large Format',
+      thickness: '9 mm Slim-Profile Vitrified',
+      finish: 'Natural Matt (Sandstone Tactile)',
       bodyType: 'Colour Body Vitrified',
-      faces: 'Faces x 3 (Continuous Vein)',
-      mosaics: '300x300 mm & 325x275 mm Hex'
+      faces: 'Faces x 6 (Seamless Organic Flow)',
+      mosaics: '300x300 mm & Curved Wall Cladding'
     },
     hotspots: [
       {
-        id: 'cg-floor',
-        x: 65,
-        y: 74,
-        title: 'Floor Surface',
-        tile: 'Calacutta Gold Beyond',
-        detail: '1190 x 2800 mm · 5.5 mm Sintered Slab'
+        id: 'lb1-floor',
+        x: 48,
+        y: 80,
+        title: 'Expansive Floor Surface',
+        tile: 'Lithico Beige Beyond',
+        detail: '1190 x 2400 mm · 9 mm Natural Matt Vitrified Slab'
       },
       {
-        id: 'cg-counter',
-        x: 74,
-        y: 38,
-        title: 'Bar Counter & Columns',
-        tile: 'Calacutta Gold Fluted',
-        detail: 'Curved Sintered Porcelain Cladding'
+        id: 'lb1-wall',
+        x: 36,
+        y: 34,
+        title: 'Architectural Curved Partition',
+        tile: 'UniTerra Bone Plaster',
+        detail: 'Seamless Sintered Cladding with Ambient Backlighting'
       }
     ]
   },
   {
-    id: 'grigio-onduluto',
+    id: 'travertine-walnut',
     index: '02',
-    title: 'Grigio Onduluto',
-    subtitle: 'Bespoke Sintered Surfaces · Commercial Architecture',
-    spaceName: 'Executive Corporate Reception',
-    spreadImg: 'assets/images/lookbook/grigio-onduluto-spread.jpg',
-    roomImg: 'assets/images/lookbook/cropped/grigio-room.jpg',
-    slabImg: 'assets/images/lookbook/cropped/grigio-slab.jpg',
-    caption: 'GRIGIO ONDULUTO BEYOND | 1190X600 | 9 MM · MOSAIC 325X270 MM',
-    productId: 'grigio-onduluto',
-    brand: 'UniTerra',
-    brandTagline: 'Bespoke Sintered Surfaces',
+    title: 'Terracotta Fluted Gloss & Greige',
+    subtitle: 'Artisanal Glazed Ceramic · Contemporary Living',
+    spaceName: 'Contemporary Living & Media Suite',
+    spreadImg: 'assets/images/lookbook/lookbook-terracotta-wall.jpg',
+    caption: 'TERRACOTTA GLOSS PICKET | 75X300 MM · FLOOR: GRIGIO 1190X600 MM',
+    productId: 'travertine-walnut',
+    brand: 'Kasamood',
+    brandTagline: 'Artisanal Designer Ceramic',
     specs: {
-      size: '1190 x 2800 mm & 1190 x 600 mm',
-      thickness: '5.5 mm / 9.0 mm',
-      finish: 'Beyond Finish (Natural Greige Strata)',
-      bodyType: 'Colour Body Vitrified',
-      faces: 'Faces x 7 (Expansive Striations)',
-      mosaics: '325x270 mm & 230x800 mm Fluted'
+      size: '75 x 300 mm Wall · 1190 x 600 mm Floor',
+      thickness: '8.5 mm Vitreous Ceramic / 9.0 mm Sintered',
+      finish: 'High-Gloss Vitreous Glaze (Reflective Luster)',
+      bodyType: 'Artisanal White Body Ceramic',
+      faces: 'Multi-Tone Handcrafted Variation (V3)',
+      mosaics: 'Chevron Picket Interlocking Pattern'
     },
     hotspots: [
       {
-        id: 'go-floor',
-        x: 66,
-        y: 84,
-        title: 'Lobby Floor Surface',
-        tile: 'Grigio Onduluto Beyond',
-        detail: '1190 x 600 mm · 9 mm Heavy Duty'
+        id: 'lb2-wall',
+        x: 38,
+        y: 40,
+        title: 'Vertical Feature Wall',
+        tile: 'Kasamood Terracotta Flute Picket',
+        detail: '75 x 300 mm · High-Gloss Reflective Vitreous Glaze'
       },
       {
-        id: 'go-wall',
-        x: 74,
-        y: 44,
-        title: 'Feature Curved Wall',
-        tile: 'Grigio Onduluto Mosaic',
-        detail: '325 x 270 mm Hexagonal Mosaic'
+        id: 'lb2-floor',
+        x: 46,
+        y: 88,
+        title: 'Neutral Living Floor',
+        tile: 'Grigio Onduluto Beyond',
+        detail: '1190 x 600 mm · Matt Sintered Heavy-Duty Slab'
       }
     ]
   },
   {
-    id: 'evoque-nero',
+    id: 'onyx-verde',
     index: '03',
-    title: 'Evoque Nero',
-    subtitle: 'Bespoke Sintered Surfaces · High-Contrast Luxury',
-    spaceName: 'Penthouse Living & Feature Wall',
-    spreadImg: 'assets/images/lookbook/evoque-nero-spread.jpg',
-    roomImg: 'assets/images/lookbook/cropped/evoque-room.jpg',
-    slabImg: 'assets/images/lookbook/cropped/evoque-slab.jpg',
-    caption: 'EVOQUE NERO RIVERWASH | 1190X2800 | 5.5 MM BOOKMATCH',
-    productId: 'evoque-nero',
-    brand: 'UniTerra',
-    brandTagline: 'Bespoke Sintered Surfaces',
+    title: 'Onyx Verde Gloss & Earth Brick',
+    subtitle: 'Biophilic Sanctuary · Japandi Spa Suite',
+    spaceName: 'Indoor-Outdoor Japandi Wellness Bath',
+    spreadImg: 'assets/images/lookbook/lookbook-biophilic-spa.jpg',
+    caption: 'ONYX VERDE GLOSS | 150X150 MM · SHOWER: EARTH BRICK 150X150 MM',
+    productId: 'onyx-verde',
+    brand: 'The Ultima',
+    brandTagline: 'Architectural Vitrified Surfaces',
     specs: {
-      size: '1190 x 2800 mm',
-      thickness: '5.5 mm Ultra-Slim',
-      finish: 'Riverwash Finish (Ai + DG Technology)',
+      size: '150 x 150 mm Artisan Square · 300 x 300 mm Floor',
+      thickness: '9 mm Vitrified Slab',
+      finish: 'Dual Finish: Crystalline Gloss & Tactile Matt',
       bodyType: 'Colour Body Vitrified',
-      faces: 'Faces x 4 (Bookmatch Continuous)',
-      mosaics: '325x275 mm & 230x800 mm Chevron'
+      faces: 'Dynamic Natural Striations (V3)',
+      mosaics: 'Micro-Grout Wet Area Grid'
     },
     hotspots: [
       {
-        id: 'en-wall',
-        x: 64,
-        y: 36,
-        title: 'Feature Fireplace Wall',
-        tile: 'Evoque Nero Riverwash',
-        detail: '1190 x 2800 mm · Bookmatched 4-Face'
+        id: 'lb3-green',
+        x: 26,
+        y: 44,
+        title: 'Vanity Statement Wall',
+        tile: 'Onyx Verde Artisan Square',
+        detail: '150 x 150 mm · Crystalline Wet-Glaze Emerald Ceramic'
       },
       {
-        id: 'en-floor',
-        x: 72,
-        y: 88,
-        title: 'Polished Living Floor',
-        tile: 'Calacutta Gold Beyond',
-        detail: '1190 x 2800 mm · High-Gloss Vitrified'
+        id: 'lb3-shower',
+        x: 52,
+        y: 44,
+        title: 'Open Shower Cladding',
+        tile: 'UniTerra Terracotta Matt',
+        detail: '150 x 150 mm · Tactile Anti-Skid Ceramic Cladding'
+      },
+      {
+        id: 'lb3-floor',
+        x: 44,
+        y: 86,
+        title: 'Wet-Area Spa Floor',
+        tile: 'Lithico Beige R11 Mosaic',
+        detail: '300 x 300 mm · High-Traction R11 All-Weather Surface'
       }
     ]
   }

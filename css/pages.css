@@ -1117,7 +1117,7 @@
   width: 100%;
   background: #000000;
   overflow: hidden;
-  aspect-ratio: 1024 / 760;
+  aspect-ratio: 1024 / 682;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1221,6 +1221,7 @@
   z-index: 25;
 }
 
+.lookbook-hotspot.active .lookbook-popover,
 .lookbook-hotspot:hover .lookbook-popover,
 .lookbook-popover:hover {
   display: block;

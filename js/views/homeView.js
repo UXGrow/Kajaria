@@ -329,7 +329,7 @@ export function renderHomeView(container) {
             <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--kj-accent);">Interactive Inspiration</span>
             <h2 class="section-title">Curated Spaces & Architectural Lookbook</h2>
             <p class="section-desc">
-              Explore Kajaria UniTerra bespoke sintered surfaces in luxury spaces. Hover over the interactive hotspots on the spread to view technical specifications.
+              Explore Kajaria bespoke surfaces and architectural installations in luxury residential and hospitality spaces. Tap or hover over interactive hotspots to view technical specifications.
             </p>
           </div>
 
@@ -1023,6 +1023,22 @@ export function renderHomeView(container) {
           }
         }, { passive: true });
       }
+
+      // Hotspot click / tap toggle
+      const hotspots = lookbookSection.querySelectorAll('.lookbook-hotspot');
+      hotspots.forEach(hotspot => {
+        hotspot.addEventListener('click', (e) => {
+          if (e.target.closest('.popover-cta')) return;
+          e.stopPropagation();
+          const wasActive = hotspot.classList.contains('active');
+          hotspots.forEach(h => h.classList.remove('active'));
+          if (!wasActive) hotspot.classList.add('active');
+        });
+      });
+
+      document.addEventListener('click', () => {
+        hotspots.forEach(h => h.classList.remove('active'));
+      });
     }
 
     // Tile Quiz CTA Banner Widget Controller
