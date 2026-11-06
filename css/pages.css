@@ -512,8 +512,7 @@
   outline-offset: 3px;
 }
 
-.color-swatch-square,
-.color-swatch-circle {
+.color-card-home .color-swatch-square {
   width: 100px;
   height: 100px;
   max-width: 85%;
@@ -526,8 +525,7 @@
   display: block;
 }
 
-.color-card-home:hover .color-swatch-square,
-.color-card-home:hover .color-swatch-circle {
+.color-card-home:hover .color-swatch-square {
   transform: scale(1.05);
   box-shadow: 0 6px 18px rgba(8, 32, 56, 0.16);
 }
@@ -1485,8 +1483,7 @@
     gap: 12px 10px;
   }
 
-  .color-swatch-square,
-  .color-swatch-circle {
+  .color-card-home .color-swatch-square {
     width: 88px;
     height: 88px;
   }
@@ -1556,8 +1553,7 @@
     gap: 10px 8px;
   }
 
-  .color-swatch-square,
-  .color-swatch-circle {
+  .color-card-home .color-swatch-square {
     width: 76px;
     height: 76px;
   }
