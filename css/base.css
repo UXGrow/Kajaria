@@ -61,7 +61,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--kj-text-heading);
   font-weight: 500;
   line-height: 1.25;
-  letter-spacing: -0.015em;
 }
 
 h1 { font-size: clamp(2rem, 3.8vw, 3.25rem); font-weight: 700; }
@@ -97,7 +96,6 @@ p {
   padding: 10px 22px;
   font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
   white-space: nowrap;
@@ -228,7 +226,6 @@ p {
   padding: 3px 8px;
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
   text-transform: uppercase;
   border-radius: var(--radius-xs);
 }

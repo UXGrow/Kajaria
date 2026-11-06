@@ -284,7 +284,7 @@ export function renderHomeView(container) {
           `).join('')}
         </div>
         <div style="text-align: center;">
-          <a href="#products?space=bathroom" class="btn btn-outline btn-lg" style="letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.88rem;">
+          <a href="#products?space=bathroom" class="btn btn-outline btn-lg" style="text-transform: uppercase; font-size: 0.88rem;">
             Explore All Spaces →
           </a>
         </div>

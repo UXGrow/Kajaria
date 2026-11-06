@@ -86,7 +86,6 @@
   color: #ffffff;
   line-height: 1.18;
   margin-bottom: 14px;
-  letter-spacing: -0.01em;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
 }
 
@@ -108,7 +107,6 @@
   color: #ffffff;
   font-size: 0.88rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
   transition: all var(--transition-fast);
@@ -237,7 +235,6 @@
   transform: rotate(180deg);
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
   gap: 8px;
   border-radius: 0 6px 6px 0;
   box-shadow: -2px 4px 12px rgba(0, 0, 0, 0.25);
@@ -270,6 +267,11 @@
   text-align: center;
   max-width: 720px;
   margin: 0 auto 40px;
+}
+
+.section-intro span,
+.section-intro .section-eyebrow {
+  letter-spacing: 0.1em;
 }
 
 .section-title {
@@ -378,7 +380,6 @@
   font-size: 0.92rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--kj-text-heading);
 }
 
@@ -427,7 +428,6 @@
 .tool-badge {
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--kj-accent);
   margin-bottom: 12px;
@@ -545,7 +545,6 @@
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--kj-text-heading);
   white-space: nowrap;
 }
@@ -820,7 +819,6 @@
 .pdp-meta-sub {
   font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
   color: var(--kj-text-muted);
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -846,7 +844,6 @@
   font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: var(--kj-text-muted);
   margin-bottom: 12px;
 }
@@ -997,7 +994,6 @@
   font-weight: 700;
   text-transform: uppercase;
   color: #94a3b8;
-  letter-spacing: 0.05em;
 }
 
 .wtb-locator-section {

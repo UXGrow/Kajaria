@@ -58,14 +58,12 @@ export function generateQuizPDF(quizState) {
       font-weight: 900;
       font-style: italic;
       color: #15508B;
-      letter-spacing: -0.5px;
     }
     .pdf-tagline {
       font-size: 11px;
       font-weight: 600;
       color: #64748b;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
     .pdf-meta {
       text-align: right;
@@ -107,7 +105,6 @@ export function generateQuizPDF(quizState) {
       font-size: 15px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
       color: #082038;
       border-bottom: 1px solid #e2e8f0;
       padding-bottom: 6px;
@@ -128,7 +125,6 @@ export function generateQuizPDF(quizState) {
     .tile-role {
       font-size: 10px;
       font-weight: 800;
-      letter-spacing: 0.08em;
       color: #15508B;
       text-transform: uppercase;
       margin-bottom: 6px;

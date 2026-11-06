@@ -83,7 +83,7 @@ function renderVisualiserModal(modalElem) {
         </div>
 
         <div style="margin-top: 16px;">
-          <div style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--kj-text-heading); margin-bottom: 10px;">
+          <div style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--kj-text-heading); margin-bottom: 10px;">
             Swap Tile Surface:
           </div>
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">

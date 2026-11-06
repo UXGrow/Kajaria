@@ -70,7 +70,7 @@ function renderCalculatorModal(modalElem) {
           </div>
 
           <div class="calc-results-card">
-            <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--kj-text-muted); margin-bottom: 12px;">
+            <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--kj-text-muted); margin-bottom: 12px;">
               Estimation Summary
             </div>
 

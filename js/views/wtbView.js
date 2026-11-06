@@ -13,7 +13,7 @@ export function renderWTBView(container) {
         <div class="container">
           <div class="wtb-hero-grid">
             <div>
-              <span style="font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #93c5fd; display: block; margin-bottom: 8px;">
+              <span style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: #93c5fd; display: block; margin-bottom: 8px;">
                 WHERE TO BUY
               </span>
               <h1 style="color: #ffffff; font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: 12px;">

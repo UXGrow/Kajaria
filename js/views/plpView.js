@@ -36,7 +36,7 @@ export function renderPLPView(container, params) {
             <span class="breadcrumb-sep">›</span>
             <span class="breadcrumb-current" style="color: #ffffff;">${activeSpaceObj.name}</span>
           </nav>
-          <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #93c5fd; display: block; margin-bottom: 4px;">
+          <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #93c5fd; display: block; margin-bottom: 4px;">
             TILES FOR EVERY SPACE
           </span>
           <h1 class="plp-hero-title">${activeSpaceObj.name}</h1>
