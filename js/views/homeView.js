@@ -150,41 +150,43 @@ export function renderHomeView(container) {
         </div>
       </section>
 
-      <!-- 3. Curated Collections Showcase (Edge-to-Edge Interactive Scroll) -->
-      <section class="collections-section" id="collections-section" aria-label="Curated Collections Showcase">
-        <div class="container">
-          <div class="section-intro text-center">
-            <h2 class="collections-heading">Collections</h2>
-            <p class="collections-desc">
-              Explore our curated selection of stylish and innovative tile designs, crafted to elevate every space with the latest trends.
-            </p>
+      <!-- 3. Curated Collections Showcase (Pinned 100vh Sticky Horizontal Scroll) -->
+      <section class="collections-scroll-container" id="collections-scroll-container" aria-label="Curated Collections Showcase">
+        <div class="collections-sticky-wrapper">
+          <div class="container collections-header-container">
+            <div class="section-intro text-center">
+              <h2 class="collections-heading">Collections</h2>
+              <p class="collections-desc">
+                Explore our curated selection of stylish and innovative tile designs, crafted to elevate every space with the latest trends.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <!-- Full Bleed Edge-to-Edge Track Wrapper -->
-        <div class="collections-edge-wrapper">
-          <div class="collections-track" id="collections-track" tabindex="0" role="region" aria-label="Collections Carousel">
-            ${COLLECTIONS.map((c, idx) => `
-              <div class="collection-card" data-collection-query="${c.query}" data-index="${idx}" role="button" tabindex="0" aria-label="Explore ${c.name} collection">
-                <div class="collection-card-img-wrap">
-                  <img src="${c.img}" alt="${c.name} Collection" class="collection-card-img" loading="lazy" />
+          <!-- Edge-to-Edge Cards Stage -->
+          <div class="collections-stage">
+            <div class="collections-track" id="collections-track" role="region" aria-label="Collections Carousel">
+              ${COLLECTIONS.map((c, idx) => `
+                <div class="collection-card" data-collection-query="${c.query}" data-index="${idx}" role="button" tabindex="0" aria-label="Explore ${c.name} collection">
+                  <div class="collection-card-img-wrap">
+                    <img src="${c.img}" alt="${c.name} Collection" class="collection-card-img" loading="lazy" />
+                  </div>
+                  <div class="collection-card-overlay"></div>
+                  <div class="collection-card-footer">
+                    <span class="collection-card-title">${c.name}</span>
+                    <span class="collection-card-arrow" aria-hidden="true">&gt;</span>
+                  </div>
                 </div>
-                <div class="collection-card-overlay"></div>
-                <div class="collection-card-footer">
-                  <span class="collection-card-title">${c.name}</span>
-                  <span class="collection-card-arrow" aria-hidden="true">&gt;</span>
-                </div>
-              </div>
-            `).join('')}
+              `).join('')}
+            </div>
           </div>
-        </div>
 
-        <div class="container">
-          <!-- Pagination Indicators (Active pill + dots as in screenshot) -->
-          <div class="collections-pagination" id="collections-pagination" aria-label="Collections Pagination">
-            ${COLLECTIONS.map((_, idx) => `
-              <button class="coll-indicator-pill ${idx === 0 ? 'active' : ''}" data-index="${idx}" aria-label="Go to collection ${idx + 1}"></button>
-            `).join('')}
+          <div class="container">
+            <!-- Pagination Indicators (Active pill + dots as in screenshot) -->
+            <div class="collections-pagination" id="collections-pagination" aria-label="Collections Pagination">
+              ${COLLECTIONS.map((_, idx) => `
+                <button class="coll-indicator-pill ${idx === 0 ? 'active' : ''}" data-index="${idx}" aria-label="Go to collection ${idx + 1}"></button>
+              `).join('')}
+            </div>
           </div>
         </div>
       </section>
@@ -530,95 +532,109 @@ export function renderHomeView(container) {
       });
     });
 
-    // Collections Interactive Carousel (Edge-to-Edge Scroll & Drag)
+    // Collections Pinned 100vh Sticky Horizontal Scroll Engine
+    const collContainer = container.querySelector('#collections-scroll-container');
     const collTrack = container.querySelector('#collections-track');
     const collIndicators = container.querySelectorAll('.coll-indicator-pill');
     const collCards = container.querySelectorAll('.collection-card');
 
-    if (collTrack && collCards.length) {
-      function getScrollStep() {
-        const firstCard = collCards[0];
-        const gap = 24;
-        return (firstCard ? firstCard.offsetWidth : 500) + gap;
-      }
+    if (collContainer && collTrack && collCards.length) {
+      let currentX = 0;
+      let targetX = 0;
+      let isVisible = false;
+      let rafId = null;
 
-      function updatePagination() {
-        const scrollLeft = collTrack.scrollLeft;
-        const step = getScrollStep();
-        if (step > 0 && collIndicators.length) {
-          const activeIndex = Math.min(Math.round(scrollLeft / step), collCards.length - 1);
-          collIndicators.forEach((dot, i) => {
-            dot.classList.toggle('active', i === activeIndex);
-          });
+      function calculateBounds() {
+        const rect = collContainer.getBoundingClientRect();
+        const maxScrollY = collContainer.offsetHeight - window.innerHeight;
+        
+        if (maxScrollY > 0) {
+          // Progress is 0 when container top reaches top of viewport, 1 when bottom reaches bottom of viewport
+          const progress = Math.max(0, Math.min(1, -rect.top / maxScrollY));
+          
+          // Calculate total horizontal travel distance
+          const trackWidth = collTrack.scrollWidth;
+          const maxHorizontal = Math.max(0, trackWidth - window.innerWidth);
+          targetX = progress * maxHorizontal;
         }
       }
 
-      // 1. Mouse Wheel Scroll (Translates vertical wheel to horizontal edge-to-edge scroll)
-      collTrack.addEventListener('wheel', (e) => {
-        const maxScroll = collTrack.scrollWidth - collTrack.clientWidth;
-        if (maxScroll <= 0) return;
+      function updatePagination(x) {
+        if (!collIndicators.length) return;
+        const trackWidth = collTrack.scrollWidth;
+        const maxHorizontal = Math.max(1, trackWidth - window.innerWidth);
+        const progress = Math.max(0, Math.min(1, x / maxHorizontal));
+        const activeIndex = Math.min(Math.round(progress * (collCards.length - 1)), collCards.length - 1);
+        
+        collIndicators.forEach((dot, i) => {
+          dot.classList.toggle('active', i === activeIndex);
+        });
+      }
 
-        const delta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
-        if (Math.abs(delta) < 1) return;
-
-        const isAtStart = collTrack.scrollLeft <= 3;
-        const isAtEnd = collTrack.scrollLeft >= maxScroll - 3;
-
-        // If scrolling right and not at end, or scrolling left and not at start
-        if ((delta > 0 && !isAtEnd) || (delta < 0 && !isAtStart)) {
-          e.preventDefault();
-          collTrack.scrollLeft += delta * 1.15;
+      function renderLoop() {
+        if (!isVisible) return;
+        
+        // Fluid LERP easing: 0.12 gives silky smooth momentum (zero hard-freezly stops!)
+        const diff = targetX - currentX;
+        if (Math.abs(diff) > 0.05) {
+          currentX += diff * 0.12;
+          collTrack.style.transform = `translate3d(${-currentX}px, 0, 0)`;
+          updatePagination(currentX);
+        } else if (currentX !== targetX) {
+          currentX = targetX;
+          collTrack.style.transform = `translate3d(${-currentX}px, 0, 0)`;
+          updatePagination(currentX);
         }
-      }, { passive: false });
+        
+        rafId = requestAnimationFrame(renderLoop);
+      }
 
-      // 2. Mouse Click-and-Drag Momentum Scrolling
-      let isDown = false;
-      let startX = 0;
-      let startScrollLeft = 0;
-      let hasDragged = false;
-
-      collTrack.addEventListener('mousedown', (e) => {
-        isDown = true;
-        hasDragged = false;
-        collTrack.classList.add('is-dragging');
-        startX = e.pageX;
-        startScrollLeft = collTrack.scrollLeft;
-      });
-
-      const handleMouseUp = () => {
-        if (!isDown) return;
-        isDown = false;
-        collTrack.classList.remove('is-dragging');
+      const onScroll = () => {
+        calculateBounds();
+        if (isVisible && !rafId) {
+          rafId = requestAnimationFrame(renderLoop);
+        }
       };
 
-      window.addEventListener('mouseup', handleMouseUp);
+      const onResize = () => {
+        calculateBounds();
+      };
 
-      collTrack.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        const diffX = e.pageX - startX;
-        if (Math.abs(diffX) > 6) {
-          hasDragged = true;
-        }
-        collTrack.scrollLeft = startScrollLeft - diffX;
-      });
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onResize, { passive: true });
 
-      // 3. Scroll event listener for pagination pill
-      collTrack.addEventListener('scroll', () => {
-        requestAnimationFrame(updatePagination);
-      }, { passive: true });
+      // Intersection Observer to run RAF loop only when in or near viewport
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          isVisible = entry.isIntersecting;
+          if (isVisible) {
+            calculateBounds();
+            if (!rafId) {
+              rafId = requestAnimationFrame(renderLoop);
+            }
+          } else if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+        });
+      }, { rootMargin: '100px 0px' });
 
-      // 4. Pagination click
+      observer.observe(collContainer);
+
+      // Pagination Click Navigation
       collIndicators.forEach(dot => {
         dot.addEventListener('click', () => {
           const idx = parseInt(dot.dataset.index, 10);
-          collTrack.scrollTo({ left: idx * getScrollStep(), behavior: 'smooth' });
+          const maxScrollY = collContainer.offsetHeight - window.innerHeight;
+          const containerTop = collContainer.getBoundingClientRect().top + window.scrollY;
+          const targetScrollY = containerTop + (idx / (collCards.length - 1)) * maxScrollY;
+          window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
         });
       });
 
-      // 5. Card Click Navigation (Prevent if user was dragging)
+      // Card Click Navigation
       collCards.forEach(card => {
         const handleCardSelect = () => {
-          if (hasDragged) return;
           const query = card.dataset.collectionQuery;
           if (query) {
             window.location.hash = `#products?collection=${encodeURIComponent(query)}`;
@@ -633,7 +649,11 @@ export function renderHomeView(container) {
         });
       });
 
-      setTimeout(updatePagination, 100);
+      // Initial calculation
+      calculateBounds();
+      currentX = targetX;
+      collTrack.style.transform = `translate3d(${-currentX}px, 0, 0)`;
+      updatePagination(currentX);
     }
 
     // Tools triggers
