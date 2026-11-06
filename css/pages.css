@@ -546,6 +546,212 @@
   margin-top: 4px;
 }
 
+/* ==========================================================================
+   Collections Showcase Section (Translating https://www.kajariaceramics.com/)
+   ========================================================================== */
+.collections-section {
+  padding: 84px 0 92px;
+  background-color: var(--kj-surface);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--kj-border-subtle);
+}
+
+.collections-heading {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: var(--kj-text-heading);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.collections-desc {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  color: var(--kj-text-muted);
+  line-height: 1.6;
+}
+
+.collections-carousel-wrapper {
+  position: relative;
+  margin-top: 44px;
+  width: 100%;
+}
+
+.collections-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding: 8px 0 16px;
+  user-select: none;
+}
+
+.collections-track::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Card: Large square format with 2 full cards + 20% of 3rd card visible on desktop */
+.collection-card {
+  flex: 0 0 calc((100% - 48px) / 2.2);
+  min-width: calc((100% - 48px) / 2.2);
+  max-width: calc((100% - 48px) / 2.2);
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  scroll-snap-align: start;
+  background-color: var(--kj-surface-stone);
+  box-shadow: 0 2px 10px rgba(8, 32, 56, 0.08);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.collection-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(8, 32, 56, 0.16);
+}
+
+.collection-card:focus-visible {
+  outline: 3px solid var(--kj-primary);
+  outline-offset: 4px;
+}
+
+.collection-card-img-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.collection-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.collection-card:hover .collection-card-img {
+  transform: scale(1.06);
+}
+
+/* Gradient overlay for text legibility matching screenshot */
+.collection-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 32, 56, 0) 50%, rgba(8, 32, 56, 0.75) 100%);
+  pointer-events: none;
+}
+
+.collection-card-footer {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  z-index: 2;
+  transition: transform var(--transition-fast);
+}
+
+.collection-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.collection-card-arrow {
+  font-size: 1.45rem;
+  line-height: 1;
+  font-weight: 400;
+  color: #ffffff;
+  transition: transform var(--transition-fast);
+}
+
+.collection-card:hover .collection-card-arrow {
+  transform: translateX(6px);
+}
+
+/* Circular Arrow Navigation Buttons */
+.collections-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--kj-text-heading);
+  box-shadow: 0 4px 18px rgba(8, 32, 56, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-fast);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.collections-arrow:hover {
+  background: var(--kj-primary);
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 8px 24px rgba(8, 32, 56, 0.28);
+}
+
+.collections-arrow:focus-visible {
+  outline: 2px solid var(--kj-primary);
+  outline-offset: 3px;
+}
+
+.collections-arrow-prev {
+  left: 16px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.collections-arrow-next {
+  right: 16px;
+}
+
+/* Pagination Indicators (Active pill + dots as in screenshot) */
+.collections-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 32px;
+}
+
+.coll-indicator-pill {
+  height: 4px;
+  width: 6px;
+  border-radius: 2px;
+  background-color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+.coll-indicator-pill.active {
+  width: 28px;
+  background-color: var(--kj-text-heading);
+}
+
+.coll-indicator-pill:hover {
+  background-color: var(--kj-primary);
+}
+
 /* Unified Tools Hub (Slide 30) */
 .tools-hub-section {
   padding: 80px 0;
@@ -1309,6 +1515,28 @@
     height: 88px;
   }
 
+  .collections-section {
+    padding: 60px 0 70px;
+  }
+
+  .collections-heading {
+    font-size: 2.1rem;
+  }
+
+  .collection-card {
+    flex: 0 0 calc((100% - 24px) / 1.4);
+    min-width: calc((100% - 24px) / 1.4);
+    max-width: calc((100% - 24px) / 1.4);
+  }
+
+  .collections-arrow-prev {
+    left: 8px;
+  }
+
+  .collections-arrow-next {
+    right: 8px;
+  }
+
   .tools-hub-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1354,6 +1582,34 @@
   .color-swatch-circle {
     width: 76px;
     height: 76px;
+  }
+
+  .collections-section {
+    padding: 48px 0 56px;
+  }
+
+  .collections-heading {
+    font-size: 1.75rem;
+  }
+
+  .collection-card {
+    flex: 0 0 calc((100% - 16px) / 1.18);
+    min-width: calc((100% - 16px) / 1.18);
+    max-width: calc((100% - 16px) / 1.18);
+  }
+
+  .collection-card-footer {
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+  }
+
+  .collection-card-title {
+    font-size: 0.98rem;
+  }
+
+  .collections-arrow {
+    display: none;
   }
 
   .color-card-title {

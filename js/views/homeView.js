@@ -1,5 +1,5 @@
 // Homepage View (Translating Slide 15, 16, 30, 31, 32, 33)
-import { SPACES, FINISHES, COLORS, TOOLS_LIST, PRODUCTS } from '../data.js';
+import { SPACES, FINISHES, COLORS, COLLECTIONS, TOOLS_LIST, PRODUCTS } from '../data.js';
 import { store } from '../store.js';
 
 const HERO_SLIDES = [
@@ -150,7 +150,57 @@ export function renderHomeView(container) {
         </div>
       </section>
 
-      <!-- 3. Unified Tools Hub on Homepage (Slide 30) -->
+      <!-- 3. Curated Collections Showcase (Translating https://www.kajariaceramics.com/) -->
+      <section class="collections-section" id="collections-section" aria-label="Curated Collections Showcase">
+        <div class="container">
+          <div class="section-intro text-center">
+            <h2 class="collections-heading">Collections</h2>
+            <p class="collections-desc">
+              Explore our curated selection of stylish and innovative tile designs, crafted to elevate every space with the latest trends.
+            </p>
+          </div>
+
+          <!-- Carousel Stage: 2 full cards + 20% of 3rd card visible on desktop -->
+          <div class="collections-carousel-wrapper">
+            <!-- Circular Arrow Buttons -->
+            <button class="collections-arrow collections-arrow-prev" id="coll-prev-btn" aria-label="Previous collections">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="collections-arrow collections-arrow-next" id="coll-next-btn" aria-label="Next collections">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+
+            <!-- Scrollable Track -->
+            <div class="collections-track" id="collections-track" tabindex="0" role="region" aria-label="Collections Carousel">
+              ${COLLECTIONS.map((c, idx) => `
+                <div class="collection-card" data-collection-query="${c.query}" data-index="${idx}" role="button" tabindex="0" aria-label="Explore ${c.name} collection">
+                  <div class="collection-card-img-wrap">
+                    <img src="${c.img}" alt="${c.name} Collection" class="collection-card-img" loading="lazy" />
+                  </div>
+                  <div class="collection-card-overlay"></div>
+                  <div class="collection-card-footer">
+                    <span class="collection-card-title">${c.name}</span>
+                    <span class="collection-card-arrow" aria-hidden="true">›</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Pagination Indicators (Active pill + dots as in screenshot) -->
+          <div class="collections-pagination" id="collections-pagination" aria-label="Collections Pagination">
+            ${COLLECTIONS.map((_, idx) => `
+              <button class="coll-indicator-pill ${idx === 0 ? 'active' : ''}" data-index="${idx}" aria-label="Go to collection ${idx + 1}"></button>
+            `).join('')}
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Unified Tools Hub on Homepage (Slide 30) -->
       <section class="tools-hub-section">
         <div class="container">
           <div class="section-intro">
@@ -490,6 +540,85 @@ export function renderHomeView(container) {
         }
       });
     });
+
+    // Collections Carousel Logic
+    const collTrack = container.querySelector('#collections-track');
+    const collPrev = container.querySelector('#coll-prev-btn');
+    const collNext = container.querySelector('#coll-next-btn');
+    const collIndicators = container.querySelectorAll('.coll-indicator-pill');
+    const collCards = container.querySelectorAll('.collection-card');
+
+    if (collTrack && collCards.length) {
+      function getScrollStep() {
+        const firstCard = collCards[0];
+        const gap = 24;
+        return (firstCard ? firstCard.offsetWidth : 400) + gap;
+      }
+
+      function updateCarouselUI() {
+        const scrollLeft = collTrack.scrollLeft;
+        const maxScroll = collTrack.scrollWidth - collTrack.clientWidth;
+        
+        if (collPrev) {
+          collPrev.style.opacity = scrollLeft <= 10 ? '0' : '1';
+          collPrev.style.pointerEvents = scrollLeft <= 10 ? 'none' : 'auto';
+        }
+        if (collNext) {
+          collNext.style.opacity = scrollLeft >= maxScroll - 10 ? '0' : '1';
+          collNext.style.pointerEvents = scrollLeft >= maxScroll - 10 ? 'none' : 'auto';
+        }
+
+        const step = getScrollStep();
+        if (step > 0 && collIndicators.length) {
+          const activeIndex = Math.min(Math.round(scrollLeft / step), collCards.length - 1);
+          collIndicators.forEach((dot, i) => {
+            dot.classList.toggle('active', i === activeIndex);
+          });
+        }
+      }
+
+      if (collPrev) {
+        collPrev.addEventListener('click', () => {
+          collTrack.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+        });
+      }
+
+      if (collNext) {
+        collNext.addEventListener('click', () => {
+          collTrack.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+        });
+      }
+
+      collTrack.addEventListener('scroll', () => {
+        requestAnimationFrame(updateCarouselUI);
+      }, { passive: true });
+
+      collIndicators.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const idx = parseInt(dot.dataset.index, 10);
+          collTrack.scrollTo({ left: idx * getScrollStep(), behavior: 'smooth' });
+        });
+      });
+
+      // Collection Card Click & Keyboard Navigation
+      collCards.forEach(card => {
+        const handleCardSelect = () => {
+          const query = card.dataset.collectionQuery;
+          if (query) {
+            window.location.hash = `#products?collection=${encodeURIComponent(query)}`;
+          }
+        };
+        card.addEventListener('click', handleCardSelect);
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleCardSelect();
+          }
+        });
+      });
+
+      setTimeout(updateCarouselUI, 100);
+    }
 
     // Tools triggers
     container.querySelectorAll('.tool-home-trigger').forEach(btn => {
