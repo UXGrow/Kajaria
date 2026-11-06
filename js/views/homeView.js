@@ -313,7 +313,7 @@ export function renderHomeView(container) {
         <div class="colors-grid">
           ${COLORS.map(c => `
             <div class="color-card-home" data-color-id="${c.id}" role="button" tabindex="0" aria-label="Explore ${c.name} tiles">
-              <div class="color-swatch-circle" style="background: ${c.gradient || c.hex}; ${c.border ? `border: 2px solid ${c.border};` : ''}"></div>
+              <div class="color-swatch-square" style="background: ${c.gradient || c.hex}; ${c.border ? `border: 1.5px solid ${c.border};` : ''}"></div>
               <span class="color-card-title">${c.name}</span>
               <span class="color-card-count">${c.count}</span>
             </div>
