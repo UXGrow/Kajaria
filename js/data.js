@@ -180,6 +180,93 @@ export const COLLECTIONS = [
 
 export const PRODUCTS = [
   {
+    id: 'calacutta-gold',
+    name: 'Calacutta Gold',
+    category: 'Bespoke Sintered Surfaces',
+    typeBadge: 'WALL TILE · FLOOR TILE · SLAB',
+    headline: 'Opulent Warm Veins on Statuario White Sintered Porcelain',
+    description: 'Calacutta Gold features majestic amber and warm gold veins sweeping across a luminous alabaster ground. Engineered with Beyond Finish and Colour Body formulation for continuous bookmatched grandeur.',
+    size: '119 x 280 cm',
+    thickness: '5.5 mm',
+    finish: 'Beyond',
+    color: 'White',
+    colorHex: '#FBF9F5',
+    colorDetail: 'Gold & Ash Veins on Pure Alabaster',
+    collection: 'UniTerra',
+    surface: 'Beyond Silk Granula',
+    waterAbsorption: '< 0.05%',
+    slipRating: 'R10',
+    idealSpaces: ['living-room', 'commercial', 'bathroom'],
+    boxCoverage: '3.33 sq.m (35.84 sq.ft)',
+    tilesPerBox: 1,
+    featured: true,
+    has360: true,
+    image: 'assets/images/lookbook/cropped/calacutta-slab.jpg',
+    gallery: [
+      'assets/images/lookbook/cropped/calacutta-room.jpg',
+      'assets/images/lookbook/cropped/calacutta-slab.jpg',
+      'assets/images/lookbook/calacutta-gold-spread.jpg'
+    ]
+  },
+  {
+    id: 'grigio-onduluto',
+    name: 'Grigio Onduluto',
+    category: 'Bespoke Sintered Surfaces',
+    typeBadge: 'WALL TILE · FLOOR TILE · SLAB',
+    headline: 'Fluid Architectural Striations in Mineral Greige',
+    description: 'Grigio Onduluto embodies the gentle movement of natural sedimentary stone with layered greige strata. Available in grand 119x280 cm slabs and 3D architectural mosaic formats for seamless executive interiors.',
+    size: '119 x 280 cm',
+    thickness: '5.5 mm',
+    finish: 'Beyond',
+    color: 'Grey',
+    colorHex: '#C5BEB7',
+    colorDetail: 'Warm Greige Mineral Waves',
+    collection: 'UniTerra',
+    surface: 'Beyond Silk Touch',
+    waterAbsorption: '< 0.05%',
+    slipRating: 'R10',
+    idealSpaces: ['commercial', 'living-room', 'bathroom'],
+    boxCoverage: '3.33 sq.m (35.84 sq.ft)',
+    tilesPerBox: 1,
+    featured: true,
+    has360: true,
+    image: 'assets/images/lookbook/cropped/grigio-slab.jpg',
+    gallery: [
+      'assets/images/lookbook/cropped/grigio-room.jpg',
+      'assets/images/lookbook/cropped/grigio-slab.jpg',
+      'assets/images/lookbook/grigio-onduluto-spread.jpg'
+    ]
+  },
+  {
+    id: 'evoque-nero',
+    name: 'Evoque Nero',
+    category: 'Bespoke Sintered Surfaces',
+    typeBadge: 'WALL TILE · FLOOR TILE · SLAB',
+    headline: 'High-Drama Noir with Radiant Liquid Gold Veins',
+    description: 'Evoque Nero commands attention with deep noir obsidian contrasted by dramatic lightning veining in white and burnt gold. Features Ai + DG Technology and Riverwash Finish for tactile geological depth.',
+    size: '119 x 280 cm',
+    thickness: '5.5 mm',
+    finish: 'Riverwash',
+    color: 'Black',
+    colorHex: '#141416',
+    colorDetail: 'Nero Black with Gold & White Strike',
+    collection: 'UniTerra',
+    surface: 'Riverwash Dry Granula',
+    waterAbsorption: '< 0.05%',
+    slipRating: 'R9',
+    idealSpaces: ['living-room', 'commercial', 'bathroom'],
+    boxCoverage: '3.33 sq.m (35.84 sq.ft)',
+    tilesPerBox: 1,
+    featured: true,
+    has360: true,
+    image: 'assets/images/lookbook/cropped/evoque-slab.jpg',
+    gallery: [
+      'assets/images/lookbook/cropped/evoque-room.jpg',
+      'assets/images/lookbook/cropped/evoque-slab.jpg',
+      'assets/images/lookbook/evoque-nero-spread.jpg'
+    ]
+  },
+  {
     id: 'calcuta-imperial-a',
     name: 'Calcuta Imperial A',
     category: 'Glazed Vitrified Tiles',
@@ -668,5 +755,128 @@ export const TOOLS_LIST = [
     icon: 'map-pin',
     description: 'Take a self-guided walkthrough through our flagship Kajaria Galaxy experience centre from the comfort of home.',
     actionLabel: 'Start Walkthrough'
+  }
+];
+
+export const LOOKBOOKS = [
+  {
+    id: 'calacutta-gold',
+    index: '01',
+    title: 'Calacutta Gold',
+    subtitle: 'Bespoke Sintered Surfaces · Hospitality Suite',
+    spaceName: 'Grand Cocktail Lounge & Bar',
+    spreadImg: 'assets/images/lookbook/calacutta-gold-spread.jpg',
+    roomImg: 'assets/images/lookbook/cropped/calacutta-room.jpg',
+    slabImg: 'assets/images/lookbook/cropped/calacutta-slab.jpg',
+    caption: 'CALACUTTA GOLD BEYOND | 1190X2800 | 5.5 MM',
+    productId: 'calacutta-gold',
+    brand: 'UniTerra',
+    brandTagline: 'Bespoke Sintered Surfaces',
+    specs: {
+      size: '1190 x 2800 mm',
+      thickness: '5.5 mm Ultra-Slim',
+      finish: 'Beyond Finish (DG M-Tech Dry Granula)',
+      bodyType: 'Colour Body Vitrified',
+      faces: 'Faces x 3 (Continuous Vein)',
+      mosaics: '300x300 mm & 325x275 mm Hex'
+    },
+    hotspots: [
+      {
+        id: 'cg-floor',
+        x: 65,
+        y: 74,
+        title: 'Floor Surface',
+        tile: 'Calacutta Gold Beyond',
+        detail: '1190 x 2800 mm · 5.5 mm Sintered Slab'
+      },
+      {
+        id: 'cg-counter',
+        x: 74,
+        y: 38,
+        title: 'Bar Counter & Columns',
+        tile: 'Calacutta Gold Fluted',
+        detail: 'Curved Sintered Porcelain Cladding'
+      }
+    ]
+  },
+  {
+    id: 'grigio-onduluto',
+    index: '02',
+    title: 'Grigio Onduluto',
+    subtitle: 'Bespoke Sintered Surfaces · Commercial Architecture',
+    spaceName: 'Executive Corporate Reception',
+    spreadImg: 'assets/images/lookbook/grigio-onduluto-spread.jpg',
+    roomImg: 'assets/images/lookbook/cropped/grigio-room.jpg',
+    slabImg: 'assets/images/lookbook/cropped/grigio-slab.jpg',
+    caption: 'GRIGIO ONDULUTO BEYOND | 1190X600 | 9 MM · MOSAIC 325X270 MM',
+    productId: 'grigio-onduluto',
+    brand: 'UniTerra',
+    brandTagline: 'Bespoke Sintered Surfaces',
+    specs: {
+      size: '1190 x 2800 mm & 1190 x 600 mm',
+      thickness: '5.5 mm / 9.0 mm',
+      finish: 'Beyond Finish (Natural Greige Strata)',
+      bodyType: 'Colour Body Vitrified',
+      faces: 'Faces x 7 (Expansive Striations)',
+      mosaics: '325x270 mm & 230x800 mm Fluted'
+    },
+    hotspots: [
+      {
+        id: 'go-floor',
+        x: 66,
+        y: 84,
+        title: 'Lobby Floor Surface',
+        tile: 'Grigio Onduluto Beyond',
+        detail: '1190 x 600 mm · 9 mm Heavy Duty'
+      },
+      {
+        id: 'go-wall',
+        x: 74,
+        y: 44,
+        title: 'Feature Curved Wall',
+        tile: 'Grigio Onduluto Mosaic',
+        detail: '325 x 270 mm Hexagonal Mosaic'
+      }
+    ]
+  },
+  {
+    id: 'evoque-nero',
+    index: '03',
+    title: 'Evoque Nero',
+    subtitle: 'Bespoke Sintered Surfaces · High-Contrast Luxury',
+    spaceName: 'Penthouse Living & Feature Wall',
+    spreadImg: 'assets/images/lookbook/evoque-nero-spread.jpg',
+    roomImg: 'assets/images/lookbook/cropped/evoque-room.jpg',
+    slabImg: 'assets/images/lookbook/cropped/evoque-slab.jpg',
+    caption: 'EVOQUE NERO RIVERWASH | 1190X2800 | 5.5 MM BOOKMATCH',
+    productId: 'evoque-nero',
+    brand: 'UniTerra',
+    brandTagline: 'Bespoke Sintered Surfaces',
+    specs: {
+      size: '1190 x 2800 mm',
+      thickness: '5.5 mm Ultra-Slim',
+      finish: 'Riverwash Finish (Ai + DG Technology)',
+      bodyType: 'Colour Body Vitrified',
+      faces: 'Faces x 4 (Bookmatch Continuous)',
+      mosaics: '325x275 mm & 230x800 mm Chevron'
+    },
+    hotspots: [
+      {
+        id: 'en-wall',
+        x: 64,
+        y: 36,
+        title: 'Feature Fireplace Wall',
+        tile: 'Evoque Nero Riverwash',
+        detail: '1190 x 2800 mm · Bookmatched 4-Face'
+      },
+      {
+        id: 'en-floor',
+        x: 72,
+        y: 88,
+        title: 'Polished Living Floor',
+        tile: 'Calacutta Gold Beyond',
+        detail: '1190 x 2800 mm · High-Gloss Vitrified'
+      }
+    ]
   }
 ];
