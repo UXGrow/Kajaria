@@ -39,7 +39,7 @@ export function renderCataloguesView(container) {
 
             <!-- "Need help choosing?" Card (Slide 24) -->
             <div class="need-help-card" style="margin-top: 0;">
-              <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=150&q=80" class="need-help-thumb" alt="Need help choosing?" />
+              <img src="assets/images/spaces/bathroom-preview.jpg" class="need-help-thumb" alt="Need help choosing?" />
               <div class="need-help-content">
                 <h5>Need help choosing?</h5>
                 <p>Answer a few simple questions to find your personalized tile palette.</p>

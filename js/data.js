@@ -8,8 +8,8 @@ export const SPACES = [
     heroTitle: 'Tiles for Every Space / Bathroom',
     tagline: 'Built for Beauty and Balance',
     description: "Kajaria's bathroom tiles are built for beauty and balance—resistant to moisture, rich in finish, and designed to make even the smallest spaces feel considered, calming, and comfortably yours.",
-    image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=300&q=80',
+    image: 'assets/images/spaces/bathroom-preview.jpg',
+    thumb: 'assets/images/spaces/bathroom-preview.jpg',
     count: 625
   },
   {
@@ -18,8 +18,8 @@ export const SPACES = [
     heroTitle: 'Tiles for Every Space / Kitchen',
     tagline: 'Enduring Elegance for the Culinary Heart',
     description: 'Stain-resistant, heat-defying vitrified surfaces engineered for daily culinary craft without sacrificing sophisticated aesthetics.',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=300&q=80',
+    image: 'assets/images/spaces/Kitchen-tile.jpg',
+    thumb: 'assets/images/spaces/Kitchen-tile.jpg',
     count: 482
   },
   {
@@ -28,8 +28,8 @@ export const SPACES = [
     heroTitle: 'Tiles for Every Space / Living Room',
     tagline: 'Expansive Grandeur in Every Footstep',
     description: 'Large-format porcelain slabs that create continuous seamless floors, reflecting natural light and elevating welcoming family spaces.',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=300&q=80',
+    image: 'assets/images/spaces/Livingroom-tile.jpg',
+    thumb: 'assets/images/spaces/Livingroom-tile.jpg',
     count: 394
   },
   {
@@ -38,8 +38,8 @@ export const SPACES = [
     heroTitle: 'Tiles for Every Space / Bedroom',
     tagline: 'Warmth, Silence and Restful Textures',
     description: 'Subtle matte and carved surfaces designed for tactile softness, tranquil acoustics, and effortless morning warmth.',
-    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=300&q=80',
+    image: 'assets/images/spaces/Bedroom-tile.jpg',
+    thumb: 'assets/images/spaces/Bedroom-tile.jpg',
     count: 410
   },
   {
@@ -48,8 +48,8 @@ export const SPACES = [
     heroTitle: 'Tiles for Every Space / Outdoor & Patio',
     tagline: 'All-Weather Slip-Resistant Resilience',
     description: 'R11 slip-rated vitrified heavy-duty slabs engineered to withstand extreme monsoons, direct sun, and heavy outdoor traffic.',
-    image: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=300&q=80',
+    image: 'assets/images/spaces/Outdoor-tile.jpg',
+    thumb: 'assets/images/spaces/Outdoor-tile.jpg',
     count: 221
   },
   {
@@ -58,9 +58,19 @@ export const SPACES = [
     heroTitle: 'Tiles for Every Space / Commercial & Retail',
     tagline: 'High Traffic Durability Meets Signature Style',
     description: 'Heavy commercial vitrified surfaces certified for hospitality, corporate lobbies, airports, and luxury flagship retail boutiques.',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
-    thumb: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=300&q=80',
+    image: 'assets/images/spaces/Commercialspace-tile.jpg',
+    thumb: 'assets/images/spaces/Commercialspace-tile.jpg',
     count: 318
+  },
+  {
+    id: 'staircases',
+    name: 'Staircases',
+    heroTitle: 'Tiles for Every Space / Staircases',
+    tagline: 'Steadfast Grip & Seamless Edging',
+    description: 'Step riser and bullnose vitrified porcelain tiles engineered for high impact, anti-skid safety, and continuous vertical architectural flow.',
+    image: 'assets/images/spaces/Staircase-tile.jpg',
+    thumb: 'assets/images/spaces/Staircase-tile.jpg',
+    count: 145
   }
 ];
 

@@ -33,7 +33,7 @@ const HERO_SLIDES = [
   {
     id: 'outdoor',
     imageAvif: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1920&q=85',
-    imageFallback: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1920&q=85',
+    imageFallback: 'assets/images/spaces/Outdoor-tile.jpg',
     title: 'Resilience for Modern<br>Outdoor Living',
     subtitle: 'Heavy-duty anti-skid surfaces that withstand all weather conditions.',
     ctaText: 'EXPLORE OUTDOOR RANGE',

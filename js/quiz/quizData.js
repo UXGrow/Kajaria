@@ -47,42 +47,42 @@ export const QUIZ_STEPS_CONFIG = [
         id: 'living-room',
         label: 'Living Room',
         desc: 'Social gathering & family comfort',
-        image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80',
+        image: 'assets/images/spaces/Livingroom-tile.jpg',
         icon: '🛋️'
       },
       {
         id: 'bedroom',
         label: 'Bedroom',
         desc: 'Tranquil sanctuary & soft acoustic warmth',
-        image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80',
+        image: 'assets/images/spaces/Bedroom-tile.jpg',
         icon: '🛏️'
       },
       {
         id: 'bathroom',
         label: 'Bathroom',
         desc: 'Spa sanctuary requiring wet-area safety & moisture defense',
-        image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=600&q=80',
+        image: 'assets/images/spaces/bathroom-preview.jpg',
         icon: '🚿'
       },
       {
         id: 'kitchen',
         label: 'Kitchen',
         desc: 'High-activity culinary heart needing stain & heat resilience',
-        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80',
+        image: 'assets/images/spaces/Kitchen-tile.jpg',
         icon: '🍳'
       },
       {
         id: 'outdoor',
         label: 'Balcony / Outdoor Area',
         desc: 'Weather-exposed terraces, verandas & poolside patios',
-        image: 'assets/images/quiz/tile-terracotta-patio.jpg',
+        image: 'assets/images/spaces/Outdoor-tile.jpg',
         icon: '🌿'
       },
       {
         id: 'commercial',
-        label: 'Other Space / Home Office',
+        label: 'Other Space / Commercial',
         desc: 'Workspaces, corridors, entrance foyers & dining niches',
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80',
+        image: 'assets/images/spaces/Commercialspace-tile.jpg',
         icon: '🏢'
       }
     ]

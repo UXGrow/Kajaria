@@ -168,21 +168,41 @@ function renderQuestionnaireMasterframe(state) {
   let featuredTileName = 'Statuario Octagon Verde';
   let featuredTileSub = 'Octagonal stone geometry · Certified R10 anti-skid';
 
-  if (answers.space === 'outdoor' || currentStepId === 'welcome' || answers.mood === 'warm-natural') {
+  if (answers.space === 'outdoor') {
+    stageBgImage = 'assets/images/spaces/Outdoor-tile.jpg';
+    stageHeadline = 'Earthy terracotta warmth and enduring all-weather durability.';
+    featuredTileName = 'DuRock Terracotta & Outdoor';
+    featuredTileSub = 'All-weather vitrified slab · Certified R11 slip rating';
+  } else if (answers.space === 'bathroom') {
+    stageBgImage = 'assets/images/spaces/bathroom-preview.jpg';
+    stageHeadline = 'Sanctuary comfort with certified wet-area safety.';
+    featuredTileName = 'Statuario Octagon Verde & Alabaster';
+    featuredTileSub = 'Moisture-resistant vitrified body with R10 grip';
+  } else if (answers.space === 'living-room') {
+    stageBgImage = 'assets/images/spaces/Livingroom-tile.jpg';
+    stageHeadline = 'Continuous grand slabs that open up natural daylight.';
+    featuredTileName = 'The Ultima Slabs';
+    featuredTileSub = '119 x 240 cm seamless porcelain continuous veining';
+  } else if (answers.space === 'bedroom') {
+    stageBgImage = 'assets/images/spaces/Bedroom-tile.jpg';
+    stageHeadline = 'Tranquil sanctuary with restful textures.';
+    featuredTileName = 'UniTerra Natural Matt';
+    featuredTileSub = 'Soft acoustic warmth and tactile morning comfort';
+  } else if (answers.space === 'kitchen') {
+    stageBgImage = 'assets/images/spaces/Kitchen-tile.jpg';
+    stageHeadline = 'Enduring elegance for the culinary heart.';
+    featuredTileName = 'Glazed Vitrified Counter & Wall';
+    featuredTileSub = 'Heat, stain and scratch resistant surfaces';
+  } else if (answers.space === 'commercial') {
+    stageBgImage = 'assets/images/spaces/Commercialspace-tile.jpg';
+    stageHeadline = 'High-traffic durability meets signature style.';
+    featuredTileName = 'DuRock Heavy Duty Commercial';
+    featuredTileSub = 'Through-body vitrified for executive spaces';
+  } else if (currentStepId === 'welcome' || answers.mood === 'warm-natural') {
     stageBgImage = 'assets/images/quiz/tile-terracotta-patio.jpg';
     stageHeadline = 'Earthy terracotta warmth and enduring all-weather durability.';
     featuredTileName = 'DuRock Terracotta Heritage';
     featuredTileSub = 'All-weather vitrified slab · Certified R11 slip rating';
-  } else if (answers.space === 'bathroom') {
-    stageBgImage = 'assets/images/quiz/tile-green-octagon.jpg';
-    stageHeadline = 'Sanctuary comfort with certified wet-area safety.';
-    featuredTileName = 'Statuario Octagon Verde';
-    featuredTileSub = 'Octagonal Carrara Stone with Emerald Cabochons';
-  } else if (answers.space === 'living-room') {
-    stageBgImage = 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80';
-    stageHeadline = 'Continuous grand slabs that open up natural daylight.';
-    featuredTileName = 'The Ultima Slabs';
-    featuredTileSub = '119 x 240 cm seamless porcelain continuous veining';
   }
 
   // Active Question Number (e.g. QUESTION 01)

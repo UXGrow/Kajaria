@@ -788,12 +788,12 @@ function attachHeaderEvents(container) {
   // Space preview hover in Products Mega-Menu (Mockup media_1793866329194_6f05d2b6.jpg)
   const spacePreviews = {
     'bathroom': 'assets/images/spaces/bathroom-preview.jpg',
-    'kitchen': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
-    'living-room': 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80',
-    'bedroom': 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80',
-    'outdoor': 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80',
-    'commercial': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
-    'staircases': 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80'
+    'kitchen': 'assets/images/spaces/Kitchen-tile.jpg',
+    'living-room': 'assets/images/spaces/Livingroom-tile.jpg',
+    'bedroom': 'assets/images/spaces/Bedroom-tile.jpg',
+    'outdoor': 'assets/images/spaces/Outdoor-tile.jpg',
+    'commercial': 'assets/images/spaces/Commercialspace-tile.jpg',
+    'staircases': 'assets/images/spaces/Staircase-tile.jpg'
   };
 
   const collectionPreviews = {
