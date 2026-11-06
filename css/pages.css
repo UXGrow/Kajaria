@@ -1084,9 +1084,15 @@
   border-bottom: 1px solid var(--kj-border-subtle);
 }
 
+.lookbook-section .container.lookbook-container {
+  max-width: 1540px;
+  width: 100%;
+  padding: 0 32px;
+}
+
 .lookbook-carousel-container {
   position: relative;
-  max-width: 1120px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -1214,11 +1220,23 @@
   border-radius: 0;
   padding: 14px 16px;
   width: 260px;
+  max-width: calc(100vw - 48px);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
   display: none;
   animation: fadeIn 0.2s ease-out;
   pointer-events: auto;
   z-index: 25;
+}
+
+.lookbook-popover::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: var(--kj-surface) transparent transparent transparent;
 }
 
 .lookbook-hotspot.active .lookbook-popover,
@@ -1254,73 +1272,6 @@
   width: 100%;
   border-radius: 0;
   text-align: center;
-}
-
-/* Floating Bottom Product Annotation Bar */
-.lookbook-bottom-annotation {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.45) 30%, rgba(0, 0, 0, 0.86) 100%);
-  padding: 30px 32px 24px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
-  color: #ffffff;
-  z-index: 15;
-}
-
-.annotation-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.annotation-eyebrow {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--kj-gold);
-  margin-bottom: 4px;
-}
-
-.annotation-title {
-  font-family: var(--font-heading);
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.2;
-  margin: 0 0 4px 0;
-}
-
-.annotation-specs {
-  font-size: 0.86rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.annotation-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.annotation-actions .btn {
-  border-radius: 0;
-  white-space: nowrap;
-}
-
-.annotation-actions .btn-secondary {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(8px);
-}
-
-.annotation-actions .btn-secondary:hover {
-  background: #ffffff;
-  color: var(--kj-text-heading);
 }
 
 /* Slide Indicator Below Stage */
@@ -1364,33 +1315,19 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 1180px) {
+@media (max-width: 1540px) {
   .lookbook-arrow-prev {
-    left: 12px;
+    left: 16px;
   }
   .lookbook-arrow-next {
-    right: 12px;
+    right: 16px;
   }
 }
 
 @media (max-width: 768px) {
-  .lookbook-bottom-annotation {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-  }
-  .annotation-actions {
-    width: 100%;
-    margin-top: 10px;
-    flex-direction: column;
-  }
-  .annotation-actions .btn {
-    width: 100%;
-    text-align: center;
-  }
   .lookbook-media-wrap {
     aspect-ratio: auto;
-    min-height: 480px;
+    min-height: 440px;
   }
 }
 

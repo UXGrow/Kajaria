@@ -324,7 +324,7 @@ export function renderHomeView(container) {
 
       <!-- 5. Curated Spaces & Architectural Lookbook (Centered Carousel with Annotations) -->
       <section class="lookbook-section" id="lookbook">
-        <div class="container">
+        <div class="container lookbook-container">
           <div class="section-intro" style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
             <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--kj-accent);">Interactive Inspiration</span>
             <h2 class="section-title">Curated Spaces & Architectural Lookbook</h2>
@@ -370,23 +370,6 @@ export function renderHomeView(container) {
                           </div>
                         </div>
                       `).join('')}
-
-                      <!-- Floating Bottom Product Annotation Bar -->
-                      <div class="lookbook-bottom-annotation">
-                        <div class="annotation-text">
-                          <div class="annotation-eyebrow">Look ${lb.index} of 03 · ${lb.spaceName}</div>
-                          <h3 class="annotation-title">${lb.title}</h3>
-                          <div class="annotation-specs">${lb.specs.size} · ${lb.specs.thickness} · ${lb.specs.finish} · ${lb.specs.bodyType}</div>
-                        </div>
-                        <div class="annotation-actions">
-                          <a href="#product-detail?id=${lb.productId}" class="btn btn-primary btn-sm">
-                            View Product Details →
-                          </a>
-                          <button class="btn btn-secondary btn-sm tool-home-trigger" data-tool="3d-visualiser" type="button">
-                            📱 View in Room (AR)
-                          </button>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 `).join('')}
