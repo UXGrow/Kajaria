@@ -269,62 +269,23 @@ export function renderHomeView(container) {
 
   function renderTabContent(tab) {
     if (tab === 'spaces') {
-      // Curated Bento configuration for balanced visual hierarchy & zero blank space:
-      // Row 1 & 2: Living Room (Hero 2x2), Bathroom (1x1), Kitchen (1x1), Bedroom (1x1), Outdoor (1x1)
-      // Row 3: Commercial Spaces (Wide 2x1), Staircases (Wide 2x1)
-      const bentoItems = [
-        { id: 'living-room', bentoType: 'hero', badge: '✦ Signature Space' },
-        { id: 'bathroom', bentoType: 'standard', badge: 'Moisture Proof' },
-        { id: 'kitchen', bentoType: 'standard', badge: 'Stain Resistant' },
-        { id: 'bedroom', bentoType: 'standard', badge: 'Acoustic Comfort' },
-        { id: 'outdoor', bentoType: 'standard', badge: 'Anti-Skid R11' },
-        { id: 'commercial', bentoType: 'wide', badge: 'Heavy Traffic' },
-        { id: 'staircases', bentoType: 'wide', badge: 'Bullnose Edge' }
-      ];
-
-      const spacesMap = Object.fromEntries(SPACES.map(s => [s.id, s]));
-
       return `
-        <div class="spaces-grid bento-grid">
-          ${bentoItems.map(item => {
-            const s = spacesMap[item.id] || SPACES.find(x => x.id === item.id);
-            if (!s) return '';
-
-            const isHero = item.bentoType === 'hero';
-            const isWide = item.bentoType === 'wide';
-            const bentoClass = isHero ? 'bento-hero' : (isWide ? `bento-wide bento-${s.id}` : 'bento-standard');
-
-            return `
-              <div class="space-card-home bento-card ${bentoClass}" data-space-id="${s.id}" role="button" tabindex="0" aria-label="Explore ${s.name} tiles">
-                <div class="space-card-media">
-                  <img src="${s.thumb}" alt="${s.name}" class="space-card-img" loading="lazy" />
-                  <div class="space-card-scrim"></div>
-                </div>
-
-                <div class="space-card-content">
-                  <div class="space-card-header-meta">
-                    <span class="space-bento-badge">${item.badge}</span>
-                    <span class="space-bento-count">${s.count} Tiles</span>
-                  </div>
-
-                  <div class="space-card-footer-info">
-                    <div class="space-card-text-group">
-                      <h3 class="space-bento-title">${s.name}</h3>
-                      ${(isHero || isWide) ? `<p class="space-bento-tagline">${s.tagline}</p>` : ''}
-                    </div>
-                    <div class="space-bento-action">
-                      ${isHero ? `<span class="space-bento-cta">Explore Space</span>` : ''}
-                      <span class="space-bento-arrow-circle" aria-hidden="true">→</span>
-                    </div>
-                  </div>
-                </div>
+        <div class="spaces-grid">
+          ${SPACES.map(s => `
+            <div class="space-card-home" data-space-id="${s.id}" role="button" tabindex="0" aria-label="Explore ${s.name} tiles">
+              <div class="space-card-img-wrap">
+                <img src="${s.thumb}" alt="${s.name}" class="space-card-img" loading="lazy" />
               </div>
-            `;
-          }).join('')}
+              <div class="space-card-footer">
+                <span class="space-card-title">${s.name}</span>
+                <span class="space-card-arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          `).join('')}
         </div>
-        <div style="text-align: center; margin-top: 8px;">
-          <a href="#products" class="btn btn-outline btn-lg" style="letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.88rem;">
-            Explore All 7 Spaces & Collections →
+        <div style="text-align: center;">
+          <a href="#products?space=bathroom" class="btn btn-outline btn-lg" style="letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.88rem;">
+            Explore All Spaces →
           </a>
         </div>
       `;

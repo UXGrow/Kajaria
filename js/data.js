@@ -71,6 +71,16 @@ export const SPACES = [
     image: 'assets/images/spaces/Staircase-tile.jpg',
     thumb: 'assets/images/spaces/Staircase-tile.jpg',
     count: 145
+  },
+  {
+    id: 'balcony',
+    name: 'Balcony & Terrace',
+    heroTitle: 'Tiles for Every Space / Balcony & Terrace',
+    tagline: 'Sunlit Living, Weatherproof Porcelains',
+    description: 'All-weather vitrified terracotta and anti-skid porcelain slabs designed for seamless transitions between indoor living and open-air verandas.',
+    image: 'assets/images/quiz/tile-terracotta-patio.jpg',
+    thumb: 'assets/images/quiz/tile-terracotta-patio.jpg',
+    count: 188
   }
 ];
 
@@ -260,7 +270,7 @@ export const PRODUCTS = [
     surface: 'Textured Matt',
     waterAbsorption: '< 0.05%',
     slipRating: 'R11',
-    idealSpaces: ['kitchen', 'outdoor', 'commercial'],
+    idealSpaces: ['kitchen', 'outdoor', 'commercial', 'staircases', 'balcony'],
     boxCoverage: '1.44 sq.m (15.50 sq.ft)',
     tilesPerBox: 2,
     featured: false,
@@ -287,7 +297,7 @@ export const PRODUCTS = [
     surface: 'Rustic Relief',
     waterAbsorption: '< 0.03%',
     slipRating: 'R11',
-    idealSpaces: ['outdoor', 'commercial', 'bathroom'],
+    idealSpaces: ['outdoor', 'commercial', 'bathroom', 'staircases', 'balcony'],
     boxCoverage: '2.56 sq.m (27.55 sq.ft)',
     tilesPerBox: 2,
     featured: false,
@@ -314,7 +324,7 @@ export const PRODUCTS = [
     surface: 'Carved Matt',
     waterAbsorption: '< 0.05%',
     slipRating: 'R10',
-    idealSpaces: ['living-room', 'bathroom', 'outdoor'],
+    idealSpaces: ['living-room', 'bathroom', 'outdoor', 'balcony'],
     boxCoverage: '1.44 sq.m (15.50 sq.ft)',
     tilesPerBox: 2,
     featured: false,
