@@ -184,7 +184,7 @@ export function renderHomeView(container) {
                   <div class="collection-card-overlay"></div>
                   <div class="collection-card-footer">
                     <span class="collection-card-title">${c.name}</span>
-                    <span class="collection-card-arrow" aria-hidden="true">›</span>
+                    <span class="collection-card-arrow" aria-hidden="true">&gt;</span>
                   </div>
                 </div>
               `).join('')}

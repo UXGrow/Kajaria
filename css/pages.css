@@ -660,17 +660,20 @@
   color: #ffffff;
   z-index: 2;
   transition: transform var(--transition-fast);
+  font-family: var(--font-heading);
 }
 
 .collection-card-title {
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 500;
   color: #ffffff;
   text-transform: uppercase;
 }
 
 .collection-card-arrow {
-  font-size: 1.45rem;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
   line-height: 1;
   font-weight: 400;
   color: #ffffff;
