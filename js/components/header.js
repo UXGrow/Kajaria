@@ -94,13 +94,12 @@ function renderHeader(container) {
           <span>Where to Buy</span>
         </a>
 
-        <a href="#catalogues" class="action-link" title="Catalogues">
+        <button class="action-link" id="header-enquire-btn" title="Enquire Now" type="button">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
           </svg>
-          <span>Catalogues</span>
-        </a>
+          <span>Enquire Now</span>
+        </button>
 
         <button class="action-link" id="header-fav-btn" title="Saved Favourites">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -486,13 +485,6 @@ function renderHeader(container) {
             </div>
           </li>
 
-          <!-- Catalogues Direct Route -->
-          <li class="nav-item">
-            <a href="#catalogues" class="nav-trigger">
-              <span>Catalogues</span>
-            </a>
-          </li>
-
           <!-- Resources -->
           <li class="nav-item has-mega dropdown-relative" id="nav-item-resources">
             <button class="nav-trigger">
@@ -624,7 +616,7 @@ function renderHeader(container) {
             <a href="#products" class="mobile-menu-link drawer-nav-link">Collections (The Ultima, UniTerra...) <span>›</span></a>
           </li>
           <li class="mobile-menu-item">
-            <a href="#catalogues" class="mobile-menu-link drawer-nav-link">Catalogues <span>›</span></a>
+            <button class="mobile-menu-link drawer-nav-link" id="drawer-enquire-btn" style="width: 100%; text-align: left; background: none; border: none; cursor: pointer; font-family: inherit;">Enquire Now <span>›</span></button>
           </li>
           <li class="mobile-menu-item">
             <a href="#investor" class="mobile-menu-link drawer-nav-link">Investor Reports <span>›</span></a>
@@ -938,6 +930,22 @@ function attachHeaderEvents(container) {
       }
     });
   });
+
+  // Enquire Now triggers
+  const enquireBtn = container.querySelector('#header-enquire-btn');
+  if (enquireBtn) {
+    enquireBtn.addEventListener('click', () => {
+      store.setModal('enquiry', true, { source: 'Header Quick Action' });
+    });
+  }
+
+  const drawerEnquireBtn = container.querySelector('#drawer-enquire-btn');
+  if (drawerEnquireBtn) {
+    drawerEnquireBtn.addEventListener('click', () => {
+      container.querySelector('#mobile-drawer')?.classList.remove('open');
+      store.setModal('enquiry', true, { source: 'Mobile Drawer Action' });
+    });
+  }
 
   // Favourites quick drawer / notification
   const favBtn = container.querySelector('#header-fav-btn');

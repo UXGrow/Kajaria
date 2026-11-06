@@ -497,10 +497,6 @@ export function renderHomeView(container) {
             </div>
 
             <div class="stories-header-controls">
-              <a href="#products" class="stories-view-more">
-                <span>View More</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </a>
               <div class="stories-nav-btn-group" aria-label="Stories carousel navigation">
                 <button class="stories-nav-btn stories-prev-btn" id="stories-prev-btn" aria-label="Previous stories" type="button">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
