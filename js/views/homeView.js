@@ -1,5 +1,5 @@
 // Homepage View (Translating Slide 15, 16, 30, 31, 32, 33)
-import { SPACES, FINISHES, COLORS, COLLECTIONS, TOOLS_LIST, PRODUCTS, LOOKBOOKS } from '../data.js';
+import { SPACES, FINISHES, COLORS, COLLECTIONS, TOOLS_LIST, PRODUCTS, LOOKBOOKS, CUSTOMER_STORIES } from '../data.js';
 import { store } from '../store.js';
 
 const HERO_SLIDES = [
@@ -483,6 +483,95 @@ export function renderHomeView(container) {
           </div>
         </div>
       </section>
+
+      <!-- 7. Real Spaces, Real Stories (Customer & Architect Stories Carousel) -->
+      <section class="stories-section" id="customer-stories" aria-label="Customer Stories & Architect Case Studies">
+        <div class="container">
+          <div class="stories-header-row">
+            <div class="stories-header-left">
+              <span class="stories-eyebrow">Voices of Architecture & Design</span>
+              <h2 class="stories-title">Real Spaces, Real Stories</h2>
+              <p class="stories-subtitle">
+                Explore real spaces and stories where architects and creators bring our tiles collection to life.
+              </p>
+            </div>
+
+            <div class="stories-header-controls">
+              <a href="#products" class="stories-view-more">
+                <span>View More</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+              <div class="stories-nav-btn-group" aria-label="Stories carousel navigation">
+                <button class="stories-nav-btn stories-prev-btn" id="stories-prev-btn" aria-label="Previous stories" type="button">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="stories-nav-btn stories-next-btn" id="stories-next-btn" aria-label="Next stories" type="button">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Track Container -->
+          <div class="stories-carousel-wrap">
+            <div class="stories-track" id="stories-track" tabindex="0" role="region" aria-label="Customer Stories Carousel">
+              ${CUSTOMER_STORIES.map(story => `
+                <article class="story-card" data-story-id="${story.id}" tabindex="0" role="button" aria-label="Watch case study: ${story.creator}">
+                  <div class="story-thumb-wrap">
+                    <img src="${story.videoThumb}" alt="${story.creator} Case Study" class="story-thumb-img" loading="lazy" />
+                    <div class="story-play-overlay">
+                      <div class="story-play-btn" aria-label="Play video">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--kj-primary)">
+                          <polygon points="7 4 19 12 7 20 7 4"></polygon>
+                        </svg>
+                      </div>
+                    </div>
+                    <span class="story-duration-tag">${story.duration}</span>
+                  </div>
+
+                  <div class="story-card-body">
+                    <h3 class="story-creator-name">${story.creator}</h3>
+                    <p class="story-quote">${story.quote}</p>
+                    <div class="story-card-footer">
+                      <span class="story-firm">${story.firm.split('·')[0].trim()}</span>
+                      <span class="story-tile-spec">${story.tile.split('&')[0].trim()}</span>
+                    </div>
+                  </div>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Story Video Modal -->
+      <div class="story-video-modal-backdrop" id="story-video-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="story-video-modal">
+          <button class="story-modal-close-btn" id="story-modal-close" aria-label="Close story video" type="button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+          <div class="story-modal-media">
+            <video class="story-modal-video" id="story-modal-video" controls autoplay playsinline loop>
+              <source src="" type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+          <div class="story-modal-body">
+            <h3 class="story-modal-creator" id="story-modal-creator"></h3>
+            <div class="story-modal-firm" id="story-modal-firm"></div>
+            <p class="story-modal-quote" id="story-modal-quote"></p>
+            <div class="story-modal-actions">
+              <div>
+                <span style="font-size: 0.78rem; text-transform: uppercase; color: var(--kj-gold); font-weight: 700; display: block; margin-bottom: 2px;">Specified Surfaces</span>
+                <strong style="font-size: 0.95rem; color: var(--kj-primary);" id="story-modal-tile"></strong>
+              </div>
+              <a href="#products" class="btn btn-primary btn-sm" id="story-modal-explore-btn">
+                Explore Featured Range →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- 5. Iconic Projects & Landmark Installations (Slide 33) -->
       <section style="padding: 80px 0; background: var(--kj-surface-alt); border-top: 1px solid var(--kj-border-subtle);">
@@ -1069,6 +1158,106 @@ export function renderHomeView(container) {
             if (specEl) specEl.textContent = prof.spec;
           }
         });
+      });
+    }
+
+    // Customer Stories Carousel & Video Modal Controller
+    const storiesSection = container.querySelector('#customer-stories');
+    if (storiesSection) {
+      const track = storiesSection.querySelector('#stories-track');
+      const prevBtn = storiesSection.querySelector('#stories-prev-btn');
+      const nextBtn = storiesSection.querySelector('#stories-next-btn');
+      const cardWidth = 324; // 300px card + 24px gap
+
+      function updateNavState() {
+        if (!track || !prevBtn || !nextBtn) return;
+        const scrollLeft = track.scrollLeft;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        prevBtn.disabled = scrollLeft <= 8;
+        nextBtn.disabled = scrollLeft >= maxScroll - 8;
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        });
+      }
+
+      if (track) {
+        track.addEventListener('scroll', updateNavState, { passive: true });
+        setTimeout(updateNavState, 150);
+      }
+
+      // Video Modal Handlers
+      const modal = container.querySelector('#story-video-modal');
+      const closeBtn = container.querySelector('#story-modal-close');
+      const videoEl = container.querySelector('#story-modal-video');
+      const creatorEl = container.querySelector('#story-modal-creator');
+      const firmEl = container.querySelector('#story-modal-firm');
+      const quoteEl = container.querySelector('#story-modal-quote');
+      const tileEl = container.querySelector('#story-modal-tile');
+      const exploreBtn = container.querySelector('#story-modal-explore-btn');
+
+      function openModal(story) {
+        if (!modal) return;
+        if (creatorEl) creatorEl.textContent = story.creator;
+        if (firmEl) firmEl.textContent = `${story.role} · ${story.firm}`;
+        if (quoteEl) quoteEl.textContent = `"${story.quote}"`;
+        if (tileEl) tileEl.textContent = `${story.tile} · ${story.project}`;
+        if (exploreBtn) exploreBtn.href = `#products`;
+        if (videoEl) {
+          videoEl.src = story.videoUrl;
+          videoEl.play().catch(() => {});
+        }
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        if (videoEl) {
+          videoEl.pause();
+          videoEl.src = '';
+        }
+        document.body.style.overflow = '';
+      }
+
+      const cards = storiesSection.querySelectorAll('.story-card');
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const id = card.dataset.storyId;
+          const story = CUSTOMER_STORIES.find(s => s.id === id);
+          if (story) openModal(story);
+        });
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const id = card.dataset.storyId;
+            const story = CUSTOMER_STORIES.find(s => s.id === id);
+            if (story) openModal(story);
+          }
+        });
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+          closeModal();
+        }
       });
     }
 

@@ -882,3 +882,90 @@ export const LOOKBOOKS = [
     ]
   }
 ];
+
+export const CUSTOMER_STORIES = [
+  {
+    id: 'built-on-expertise',
+    creator: 'Built on expertise',
+    role: 'Architectural Philosophy',
+    quote: 'Design is more than choosing what looks beautiful. It is about lasting material integrity and scale.',
+    firm: 'PSA Architectural Studio · Mumbai',
+    project: 'Private Penthouse & Wellness Pavilion',
+    tile: 'The Ultima 120x240 Slabs',
+    duration: '02:45',
+    videoThumb: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-living-room-interior-39785-large.mp4'
+  },
+  {
+    id: 'prashant-sutharia',
+    creator: 'Ar. Prashant Sutharia',
+    role: 'Principal Architect, PSA Design',
+    quote: 'Every space tells a story when surfaces are crafted with intent and technical precision.',
+    firm: 'PSA Architectural Studio · Mumbai',
+    project: 'Luxury Coastal Villa · Alibaug',
+    tile: 'Calacutta Gold & Grigio Onduluto',
+    duration: '03:12',
+    videoThumb: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-living-room-interior-39785-large.mp4'
+  },
+  {
+    id: 'inspire-conversations',
+    creator: 'Designed to inspire conversations',
+    role: 'Spatial Innovation',
+    quote: 'A confluence of minds that defines modern architecture and sensory spatial experiences.',
+    firm: 'Kajaria Galaxy Experience Centre · Delhi NCR',
+    project: 'Flagship Architectural Experience',
+    tile: 'UniTerra Bespoke Sintered Surfaces',
+    duration: '02:18',
+    videoThumb: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-living-room-interior-39785-large.mp4'
+  },
+  {
+    id: 'kratika-gupta',
+    creator: 'Kratika Gupta.',
+    role: 'Interior Stylist & Homeowner',
+    quote: 'Style isn’t just in what you wear — it’s in the surfaces and atmosphere where you live!',
+    firm: 'Contemporary Residence · Bengaluru',
+    project: 'Minimalist Japandi Living Room & Kitchen',
+    tile: 'Lithico Beige & Terracotta Flute',
+    duration: '01:54',
+    videoThumb: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-living-room-interior-39785-large.mp4'
+  },
+  {
+    id: 'studio-lotus',
+    creator: 'Studio Lotus',
+    role: 'Hospitality Design Lab',
+    quote: 'Large-format continuous vein slabs completely transformed the serenity and flow of our suites.',
+    firm: 'Hospitality Architects · Jaipur & Delhi',
+    project: 'Heritage Luxury Wellness Resort',
+    tile: 'Evoque Nero Riverwash & Onyx Verde',
+    duration: '03:40',
+    videoThumb: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-living-room-interior-39785-large.mp4'
+  },
+  {
+    id: 'sanjay-puri',
+    creator: 'Ar. Sanjay Puri',
+    role: 'Principal Architect',
+    quote: 'Tiles are the enduring skin of architecture. Kajaria provides the technical rigor architects trust.',
+    firm: 'Sanjay Puri Architects · Mumbai',
+    project: 'Commercial Innovation Centre · Noida',
+    tile: 'Durock All-Weather & Vitronite Facades',
+    duration: '02:50',
+    videoThumb: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-living-room-interior-39785-large.mp4'
+  },
+  {
+    id: 'meera-singhal',
+    creator: 'Meera & Rohan Singhal',
+    role: 'Homeowners',
+    quote: 'We wanted timeless Italian marble aesthetic without the porous staining and sealant hassle.',
+    firm: 'The Camellias Residence · Gurugram',
+    project: 'Open Plan Living & Dining Pavilion',
+    tile: 'Statuario White Gloss 120x240 cm',
+    duration: '02:15',
+    videoThumb: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-living-room-interior-39785-large.mp4'
+  }
+];
