@@ -150,7 +150,7 @@ export function renderHomeView(container) {
         </div>
       </section>
 
-      <!-- 3. Curated Collections Showcase (Translating https://www.kajariaceramics.com/) -->
+      <!-- 3. Curated Collections Showcase (Edge-to-Edge Interactive Scroll) -->
       <section class="collections-section" id="collections-section" aria-label="Curated Collections Showcase">
         <div class="container">
           <div class="section-intro text-center">
@@ -159,38 +159,27 @@ export function renderHomeView(container) {
               Explore our curated selection of stylish and innovative tile designs, crafted to elevate every space with the latest trends.
             </p>
           </div>
+        </div>
 
-          <!-- Carousel Stage: 2 full cards + 20% of 3rd card visible on desktop -->
-          <div class="collections-carousel-wrapper">
-            <!-- Circular Arrow Buttons -->
-            <button class="collections-arrow collections-arrow-prev" id="coll-prev-btn" aria-label="Previous collections">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
-            <button class="collections-arrow collections-arrow-next" id="coll-next-btn" aria-label="Next collections">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
-
-            <!-- Scrollable Track -->
-            <div class="collections-track" id="collections-track" tabindex="0" role="region" aria-label="Collections Carousel">
-              ${COLLECTIONS.map((c, idx) => `
-                <div class="collection-card" data-collection-query="${c.query}" data-index="${idx}" role="button" tabindex="0" aria-label="Explore ${c.name} collection">
-                  <div class="collection-card-img-wrap">
-                    <img src="${c.img}" alt="${c.name} Collection" class="collection-card-img" loading="lazy" />
-                  </div>
-                  <div class="collection-card-overlay"></div>
-                  <div class="collection-card-footer">
-                    <span class="collection-card-title">${c.name}</span>
-                    <span class="collection-card-arrow" aria-hidden="true">&gt;</span>
-                  </div>
+        <!-- Full Bleed Edge-to-Edge Track Wrapper -->
+        <div class="collections-edge-wrapper">
+          <div class="collections-track" id="collections-track" tabindex="0" role="region" aria-label="Collections Carousel">
+            ${COLLECTIONS.map((c, idx) => `
+              <div class="collection-card" data-collection-query="${c.query}" data-index="${idx}" role="button" tabindex="0" aria-label="Explore ${c.name} collection">
+                <div class="collection-card-img-wrap">
+                  <img src="${c.img}" alt="${c.name} Collection" class="collection-card-img" loading="lazy" />
                 </div>
-              `).join('')}
-            </div>
+                <div class="collection-card-overlay"></div>
+                <div class="collection-card-footer">
+                  <span class="collection-card-title">${c.name}</span>
+                  <span class="collection-card-arrow" aria-hidden="true">&gt;</span>
+                </div>
+              </div>
+            `).join('')}
           </div>
+        </div>
 
+        <div class="container">
           <!-- Pagination Indicators (Active pill + dots as in screenshot) -->
           <div class="collections-pagination" id="collections-pagination" aria-label="Collections Pagination">
             ${COLLECTIONS.map((_, idx) => `
@@ -541,10 +530,8 @@ export function renderHomeView(container) {
       });
     });
 
-    // Collections Carousel Logic
+    // Collections Interactive Carousel (Edge-to-Edge Scroll & Drag)
     const collTrack = container.querySelector('#collections-track');
-    const collPrev = container.querySelector('#coll-prev-btn');
-    const collNext = container.querySelector('#coll-next-btn');
     const collIndicators = container.querySelectorAll('.coll-indicator-pill');
     const collCards = container.querySelectorAll('.collection-card');
 
@@ -552,22 +539,11 @@ export function renderHomeView(container) {
       function getScrollStep() {
         const firstCard = collCards[0];
         const gap = 24;
-        return (firstCard ? firstCard.offsetWidth : 400) + gap;
+        return (firstCard ? firstCard.offsetWidth : 500) + gap;
       }
 
-      function updateCarouselUI() {
+      function updatePagination() {
         const scrollLeft = collTrack.scrollLeft;
-        const maxScroll = collTrack.scrollWidth - collTrack.clientWidth;
-        
-        if (collPrev) {
-          collPrev.style.opacity = scrollLeft <= 10 ? '0' : '1';
-          collPrev.style.pointerEvents = scrollLeft <= 10 ? 'none' : 'auto';
-        }
-        if (collNext) {
-          collNext.style.opacity = scrollLeft >= maxScroll - 10 ? '0' : '1';
-          collNext.style.pointerEvents = scrollLeft >= maxScroll - 10 ? 'none' : 'auto';
-        }
-
         const step = getScrollStep();
         if (step > 0 && collIndicators.length) {
           const activeIndex = Math.min(Math.round(scrollLeft / step), collCards.length - 1);
@@ -577,22 +553,61 @@ export function renderHomeView(container) {
         }
       }
 
-      if (collPrev) {
-        collPrev.addEventListener('click', () => {
-          collTrack.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
-        });
-      }
+      // 1. Mouse Wheel Scroll (Translates vertical wheel to horizontal edge-to-edge scroll)
+      collTrack.addEventListener('wheel', (e) => {
+        const maxScroll = collTrack.scrollWidth - collTrack.clientWidth;
+        if (maxScroll <= 0) return;
 
-      if (collNext) {
-        collNext.addEventListener('click', () => {
-          collTrack.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
-        });
-      }
+        const delta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+        if (Math.abs(delta) < 1) return;
 
+        const isAtStart = collTrack.scrollLeft <= 3;
+        const isAtEnd = collTrack.scrollLeft >= maxScroll - 3;
+
+        // If scrolling right and not at end, or scrolling left and not at start
+        if ((delta > 0 && !isAtEnd) || (delta < 0 && !isAtStart)) {
+          e.preventDefault();
+          collTrack.scrollLeft += delta * 1.15;
+        }
+      }, { passive: false });
+
+      // 2. Mouse Click-and-Drag Momentum Scrolling
+      let isDown = false;
+      let startX = 0;
+      let startScrollLeft = 0;
+      let hasDragged = false;
+
+      collTrack.addEventListener('mousedown', (e) => {
+        isDown = true;
+        hasDragged = false;
+        collTrack.classList.add('is-dragging');
+        startX = e.pageX;
+        startScrollLeft = collTrack.scrollLeft;
+      });
+
+      const handleMouseUp = () => {
+        if (!isDown) return;
+        isDown = false;
+        collTrack.classList.remove('is-dragging');
+      };
+
+      window.addEventListener('mouseup', handleMouseUp);
+
+      collTrack.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const diffX = e.pageX - startX;
+        if (Math.abs(diffX) > 6) {
+          hasDragged = true;
+        }
+        collTrack.scrollLeft = startScrollLeft - diffX;
+      });
+
+      // 3. Scroll event listener for pagination pill
       collTrack.addEventListener('scroll', () => {
-        requestAnimationFrame(updateCarouselUI);
+        requestAnimationFrame(updatePagination);
       }, { passive: true });
 
+      // 4. Pagination click
       collIndicators.forEach(dot => {
         dot.addEventListener('click', () => {
           const idx = parseInt(dot.dataset.index, 10);
@@ -600,9 +615,10 @@ export function renderHomeView(container) {
         });
       });
 
-      // Collection Card Click & Keyboard Navigation
+      // 5. Card Click Navigation (Prevent if user was dragging)
       collCards.forEach(card => {
         const handleCardSelect = () => {
+          if (hasDragged) return;
           const query = card.dataset.collectionQuery;
           if (query) {
             window.location.hash = `#products?collection=${encodeURIComponent(query)}`;
@@ -617,7 +633,7 @@ export function renderHomeView(container) {
         });
       });
 
-      setTimeout(updateCarouselUI, 100);
+      setTimeout(updatePagination, 100);
     }
 
     // Tools triggers
