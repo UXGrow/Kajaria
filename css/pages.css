@@ -1394,6 +1394,340 @@
 }
 
 /* ==========================================================================
+   Tile Quiz Conversion CTA Banner ("Still confused? find what you like.")
+   ========================================================================== */
+.quiz-cta-banner-section {
+  padding: 48px 0 80px;
+  background-color: var(--kj-surface);
+}
+
+.quiz-cta-card {
+  min-height: 420px;
+  background: linear-gradient(135deg, #082038 0%, #0e3760 50%, #15508B 100%);
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  border-radius: 0;
+  border: none;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 48px rgba(8, 32, 56, 0.16);
+}
+
+.quiz-cta-content {
+  padding: 56px 48px 52px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+}
+
+.quiz-cta-eyebrow {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--kj-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.quiz-cta-spark {
+  color: var(--kj-gold);
+  font-size: 0.85rem;
+}
+
+.quiz-cta-heading {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  line-height: 1.12;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+}
+
+.quiz-cta-highlight {
+  font-style: italic;
+  color: var(--kj-gold);
+}
+
+.quiz-cta-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 480px;
+  margin: 0 0 28px 0;
+}
+
+.quiz-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.quiz-cta-btn {
+  background: var(--kj-gold);
+  color: #ffffff;
+  border-radius: 0;
+  border: none;
+  padding: 13px 26px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.quiz-cta-btn:hover {
+  background: #b5954a;
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.quiz-cta-hint {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.quiz-cta-trust {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.quiz-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trust-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--kj-gold);
+}
+
+/* Right: Visual Area with Floating Glassmorphic Interactive Widget */
+.quiz-cta-visual {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 40px;
+}
+
+.quiz-visual-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.quiz-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+  filter: saturate(1.2);
+}
+
+.quiz-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #082038 0%, rgba(8, 32, 56, 0.65) 45%, rgba(21, 80, 139, 0.35) 100%);
+}
+
+.quiz-interactive-widget {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 380px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  padding: 22px;
+  color: #ffffff;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+}
+
+.widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.widget-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--kj-gold);
+}
+
+.widget-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--kj-gold);
+  animation: widgetGlow 2s infinite;
+}
+
+@keyframes widgetGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.3); }
+}
+
+.widget-step {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.widget-question {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.widget-space-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.widget-chip {
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.widget-chip:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.widget-chip.active {
+  background: var(--kj-gold);
+  border-color: var(--kj-gold);
+  color: #ffffff;
+}
+
+.widget-result-box {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 12px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.widget-result-swatches {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.widget-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.widget-result-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-tile-name {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.result-spec-tag {
+  font-size: 0.72rem;
+  color: var(--kj-gold);
+}
+
+.widget-launch-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: color var(--transition-fast);
+}
+
+.widget-launch-link:hover {
+  color: var(--kj-gold);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .quiz-cta-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .quiz-cta-content {
+    padding: 40px 32px 32px;
+  }
+  .quiz-cta-visual {
+    padding: 32px 24px;
+    min-height: 320px;
+  }
+  .quiz-cta-heading {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .quiz-cta-content {
+    padding: 32px 20px;
+  }
+  .quiz-cta-heading {
+    font-size: 1.8rem;
+  }
+  .quiz-cta-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .quiz-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
    2. PRODUCT LISTING PAGE (PLP) (Slide 19, 20)
    ========================================================================== */
 /* Explore by Space Horizontal Switcher */

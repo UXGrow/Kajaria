@@ -408,6 +408,99 @@ export function renderHomeView(container) {
         </div>
       </section>
 
+      <!-- 6. Tile Quiz Conversion CTA Banner (Slide 30 / Reference Inspired) -->
+      <section class="quiz-cta-banner-section" id="quiz-cta-banner">
+        <div class="container">
+          <div class="quiz-cta-card">
+            <!-- Left: Editorial Copy & CTAs -->
+            <div class="quiz-cta-content">
+              <span class="quiz-cta-eyebrow">
+                <span class="quiz-cta-spark">✦</span> AI Design Matcher & Assistant
+              </span>
+              <h2 class="quiz-cta-heading">
+                Still confused? <br>
+                <em class="quiz-cta-highlight">Find what you like.</em>
+              </h2>
+              <p class="quiz-cta-desc">
+                With over 3,000+ tile designs, finding the perfect combination can feel overwhelming. Take our 60-second lifestyle quiz to discover your tailored palette, ideal finish, and slip ratings.
+              </p>
+              
+              <div class="quiz-cta-actions">
+                <a href="#tile-quiz" class="btn btn-primary quiz-cta-btn">
+                  <span>Start Tile Quiz</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <span class="quiz-cta-hint">Takes only 60 seconds · No sign-up required</span>
+              </div>
+
+              <!-- Trust Micro-Badges -->
+              <div class="quiz-cta-trust">
+                <div class="quiz-trust-item">
+                  <span class="trust-dot"></span>
+                  <span>45,000+ Palettes Created</span>
+                </div>
+                <div class="quiz-trust-item">
+                  <span class="trust-dot"></span>
+                  <span>Architect & BIS Certified</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Ambient Visual & Floating Interactive Widget (Reference Inspired) -->
+            <div class="quiz-cta-visual">
+              <div class="quiz-visual-bg">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Tile Quiz Room Preview" class="quiz-visual-img" />
+                <div class="quiz-visual-overlay"></div>
+              </div>
+
+              <!-- Floating Glassmorphic Interactive Widget (like audio pill in Reference 1) -->
+              <div class="quiz-interactive-widget" role="region" aria-label="Interactive Tile Quiz Preview">
+                <div class="widget-header">
+                  <div class="widget-tag">
+                    <span class="widget-pulse"></span>
+                    <span>Live Matcher Preview</span>
+                  </div>
+                  <span class="widget-step">Step 01 / 04</span>
+                </div>
+
+                <div class="widget-question">
+                  Which space are you designing?
+                </div>
+
+                <div class="widget-space-chips">
+                  <button class="widget-chip active" type="button" data-space="bathroom">
+                    <span>🛁 Bathroom</span>
+                  </button>
+                  <button class="widget-chip" type="button" data-space="living">
+                    <span>🛋️ Living Room</span>
+                  </button>
+                  <button class="widget-chip" type="button" data-space="outdoor">
+                    <span>🌿 Patio & Garden</span>
+                  </button>
+                </div>
+
+                <!-- Match preview result box -->
+                <div class="widget-result-box" id="widget-result-box">
+                  <div class="widget-result-swatches">
+                    <div class="widget-swatch" id="widget-swatch-1" style="background: #fbf9f5;" title="Calacutta Gold"></div>
+                    <div class="widget-swatch" id="widget-swatch-2" style="background: #c5beb7;" title="Lithico Beige"></div>
+                  </div>
+                  <div class="widget-result-text">
+                    <div class="result-tile-name" id="result-tile-name">Calacutta Gold + Lithico Beige</div>
+                    <div class="result-spec-tag" id="result-spec-tag">Anti-Skid R10 · 98% Lifestyle Match</div>
+                  </div>
+                </div>
+
+                <a href="#tile-quiz" class="widget-launch-link">
+                  <span>Explore Tailored Palette</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- 5. Iconic Projects & Landmark Installations (Slide 33) -->
       <section style="padding: 80px 0; background: var(--kj-surface-alt); border-top: 1px solid var(--kj-border-subtle);">
         <div class="container">
@@ -930,6 +1023,54 @@ export function renderHomeView(container) {
           }
         }, { passive: true });
       }
+    }
+
+    // Tile Quiz CTA Banner Widget Controller
+    const quizCtaBanner = container.querySelector('#quiz-cta-banner');
+    if (quizCtaBanner) {
+      const chips = quizCtaBanner.querySelectorAll('.widget-chip');
+      const swatch1 = quizCtaBanner.querySelector('#widget-swatch-1');
+      const swatch2 = quizCtaBanner.querySelector('#widget-swatch-2');
+      const nameEl = quizCtaBanner.querySelector('#result-tile-name');
+      const specEl = quizCtaBanner.querySelector('#result-spec-tag');
+
+      const spaceProfiles = {
+        bathroom: {
+          color1: '#fbf9f5',
+          color2: '#c5beb7',
+          name: 'Calacutta Gold + Lithico Beige',
+          spec: 'Anti-Skid R10 · 98% Lifestyle Match'
+        },
+        living: {
+          color1: '#141416',
+          color2: '#fbf9f5',
+          name: 'Evoque Nero + Calacutta Gold',
+          spec: 'High-Gloss 120x240 cm · 96% Match'
+        },
+        outdoor: {
+          color1: '#54585a',
+          color2: '#8b8579',
+          name: 'Durock Stone + Mineral Concrete',
+          spec: 'All-Weather R11 · 99% Durability Match'
+        }
+      };
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', (e) => {
+          e.preventDefault();
+          chips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+
+          const space = chip.dataset.space;
+          const prof = spaceProfiles[space];
+          if (prof) {
+            if (swatch1) swatch1.style.background = prof.color1;
+            if (swatch2) swatch2.style.background = prof.color2;
+            if (nameEl) nameEl.textContent = prof.name;
+            if (specEl) specEl.textContent = prof.spec;
+          }
+        });
+      });
     }
 
     startAutoSlide();
