@@ -203,9 +203,9 @@ export function renderHomeView(container) {
           </div>
 
           <div class="tools-bento-grid">
-            <!-- COLUMN 1: AR & DESIGN ADVISORY -->
+            <!-- COLUMN 1: AR LIVE PREVIEW (Tool 1) -->
             <div class="bento-col bento-col-1">
-              <!-- Card 1.1: View in Room (AR) Photo Card -->
+              <!-- Card 1: View in Room (AR) Photo Hero Card -->
               <div class="bento-card bento-card-photo bento-card-ar tool-home-trigger" data-tool="view-in-room" role="button" tabindex="0">
                 <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="View in Room AR" class="bento-photo-img" />
                 <div class="bento-photo-overlay"></div>
@@ -221,46 +221,18 @@ export function renderHomeView(container) {
                   <span class="bento-action-link bento-link-light">Launch AR Visualiser →</span>
                 </div>
               </div>
-
-              <!-- Card 1.2: Senior Architect & Design Advisory -->
-              <div class="bento-card bento-card-white tool-home-trigger" data-tool="enquiry-advisory" role="button" tabindex="0">
-                <div class="bento-avatars-row">
-                  <div class="bento-avatar-stack">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80" alt="Architect" class="bento-avatar" />
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80" alt="Architect" class="bento-avatar" />
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80" alt="Architect" class="bento-avatar" />
-                  </div>
-                  <span class="bento-badge-pill">150+ Architects</span>
-                </div>
-                <h3 class="bento-card-title">Senior Design Advisory</h3>
-                <p class="bento-card-desc">
-                  Expert palette guidance, slip-rating certification, and bespoke wall-floor pairing for your floorplan.
-                </p>
-              </div>
-
-              <!-- Card 1.3: Quick Action Bar -->
-              <div class="bento-card bento-card-action">
-                <div class="bento-action-text">
-                  <span class="bento-action-eyebrow">Project Guidance</span>
-                  <span class="bento-action-heading">Plan Your Space</span>
-                </div>
-                <button class="bento-btn-pill tool-home-trigger" data-tool="where-to-buy" type="button">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <span>Locate Galaxy</span>
-                </button>
-              </div>
             </div>
 
-            <!-- COLUMN 2: CALCULATOR & AI QUIZ SWITCHER -->
+            <!-- COLUMN 2: CALCULATOR & AI QUIZ SWITCHER (Tools 2 & 3) -->
             <div class="bento-col bento-col-2">
-              <!-- Card 2.1: Precision Tile Calculator -->
+              <!-- Card 2: Precision Tile Calculator -->
               <div class="bento-card bento-card-tinted bento-card-ice tool-home-trigger" data-tool="tile-calculator" role="button" tabindex="0">
                 <div class="bento-graphic-header">
                   <div class="bento-icon-graphic">
                     <svg class="bento-doodle-spark doodle-spark-tl" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kj-primary)" stroke-width="2.5"><path d="M12 2v4M2 12h4M4.93 4.93l2.83 2.83M19.07 4.93l-2.83 2.83"></path></svg>
                     <div class="bento-calculator-glyph">
                       <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--kj-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="4" y="2" width="16" height="20" rx="3"></rect>
+                        <rect x="4" y="2" width="16" height="20" rx="0"></rect>
                         <line x1="8" y1="6" x2="16" y2="6"></line>
                         <line x1="8" y1="11" x2="10" y2="11"></line>
                         <line x1="14" y1="11" x2="16" y2="11"></line>
@@ -280,7 +252,7 @@ export function renderHomeView(container) {
                 </div>
               </div>
 
-              <!-- Card 2.2: AI Tile Quiz & Interactive Segmented Switcher -->
+              <!-- Card 3: AI Tile Quiz & Interactive Segmented Switcher -->
               <div class="bento-card bento-card-tinted bento-card-gold" id="bento-quiz-card">
                 <div class="bento-switcher-header">
                   <div class="bento-segmented-pill" role="tablist">
@@ -307,9 +279,9 @@ export function renderHomeView(container) {
               </div>
             </div>
 
-            <!-- COLUMN 3: SHOWROOM & 3D VISUALISER -->
+            <!-- COLUMN 3: SHOWROOM & 3D VISUALISER (Tools 4 & 5) -->
             <div class="bento-col bento-col-3">
-              <!-- Card 3.1: Virtual Showroom Tour -->
+              <!-- Card 4: Virtual Showroom Tour -->
               <div class="bento-card bento-card-tinted bento-card-slate tool-home-trigger" data-tool="virtual-showroom" role="button" tabindex="0">
                 <div class="bento-graphic-header bento-graphic-360">
                   <div class="bento-360-badge">
@@ -329,7 +301,7 @@ export function renderHomeView(container) {
                 </div>
               </div>
 
-              <!-- Card 3.2: 3D Tile Visualiser Photo Card -->
+              <!-- Card 5: 3D Tile Visualiser Photo Card -->
               <div class="bento-card bento-card-photo bento-card-3d tool-home-trigger" data-tool="3d-visualiser" role="button" tabindex="0">
                 <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="3D Tile Visualiser" class="bento-photo-img" />
                 <div class="bento-photo-overlay"></div>
