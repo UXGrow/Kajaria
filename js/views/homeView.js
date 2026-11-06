@@ -191,28 +191,161 @@ export function renderHomeView(container) {
         </div>
       </section>
 
-      <!-- 4. Unified Tools Hub on Homepage (Slide 30) -->
-      <section class="tools-hub-section">
+      <!-- 4. Unified Tools Hub Bento Grid (Design, Visualise & Specify) -->
+      <section class="tools-hub-section" id="tools-section">
         <div class="container">
-          <div class="section-intro">
+          <div class="section-intro" style="text-align: center; max-width: 720px; margin: 0 auto 12px;">
             <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--kj-accent);">Design, Visualise & Specify</span>
-            <h2 class="section-title">Everything You Need to Specify Right</h2>
+            <h2 class="section-title">Everything You Need to <em style="font-style: italic; font-family: var(--font-heading); color: var(--kj-primary);">Specify Right</em></h2>
             <p class="section-desc">
               Built-in interactive tools and reference calculators to verify capability, calculate tile volumes, and visualize spaces with confidence.
             </p>
           </div>
 
-          <div class="tools-hub-grid">
-            ${TOOLS_LIST.map(t => `
-              <div class="tool-card">
-                <span class="tool-badge">${t.badge}</span>
-                <h3 class="tool-name">${t.name}</h3>
-                <p class="tool-desc">${t.description}</p>
-                <button class="tool-action-btn tool-home-trigger" data-tool="${t.id}">
-                  ${t.actionLabel} →
+          <div class="tools-bento-grid">
+            <!-- COLUMN 1: AR & DESIGN ADVISORY -->
+            <div class="bento-col bento-col-1">
+              <!-- Card 1.1: View in Room (AR) Photo Card -->
+              <div class="bento-card bento-card-photo bento-card-ar tool-home-trigger" data-tool="view-in-room" role="button" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="View in Room AR" class="bento-photo-img" />
+                <div class="bento-photo-overlay"></div>
+                <div class="bento-pill-badge bento-pill-top">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                  <span>Live AR Camera</span>
+                </div>
+                <div class="bento-card-content bento-content-bottom">
+                  <h3 class="bento-card-title bento-title-light">View in Your Room</h3>
+                  <p class="bento-card-desc bento-desc-light">
+                    Experience any Kajaria slab directly in your actual space with instant phone AR projection or photo upload.
+                  </p>
+                  <span class="bento-action-link bento-link-light">Launch AR Visualiser →</span>
+                </div>
+              </div>
+
+              <!-- Card 1.2: Senior Architect & Design Advisory -->
+              <div class="bento-card bento-card-white tool-home-trigger" data-tool="enquiry-advisory" role="button" tabindex="0">
+                <div class="bento-avatars-row">
+                  <div class="bento-avatar-stack">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80" alt="Architect" class="bento-avatar" />
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80" alt="Architect" class="bento-avatar" />
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80" alt="Architect" class="bento-avatar" />
+                  </div>
+                  <span class="bento-badge-pill">150+ Architects</span>
+                </div>
+                <h3 class="bento-card-title">Senior Design Advisory</h3>
+                <p class="bento-card-desc">
+                  Expert palette guidance, slip-rating certification, and bespoke wall-floor pairing for your floorplan.
+                </p>
+              </div>
+
+              <!-- Card 1.3: Quick Action Bar -->
+              <div class="bento-card bento-card-action">
+                <div class="bento-action-text">
+                  <span class="bento-action-eyebrow">Project Guidance</span>
+                  <span class="bento-action-heading">Plan Your Space</span>
+                </div>
+                <button class="bento-btn-pill tool-home-trigger" data-tool="where-to-buy" type="button">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>Locate Galaxy</span>
                 </button>
               </div>
-            `).join('')}
+            </div>
+
+            <!-- COLUMN 2: CALCULATOR & AI QUIZ SWITCHER -->
+            <div class="bento-col bento-col-2">
+              <!-- Card 2.1: Precision Tile Calculator -->
+              <div class="bento-card bento-card-tinted bento-card-ice tool-home-trigger" data-tool="tile-calculator" role="button" tabindex="0">
+                <div class="bento-graphic-header">
+                  <div class="bento-icon-graphic">
+                    <svg class="bento-doodle-spark doodle-spark-tl" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kj-primary)" stroke-width="2.5"><path d="M12 2v4M2 12h4M4.93 4.93l2.83 2.83M19.07 4.93l-2.83 2.83"></path></svg>
+                    <div class="bento-calculator-glyph">
+                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--kj-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="2" width="16" height="20" rx="3"></rect>
+                        <line x1="8" y1="6" x2="16" y2="6"></line>
+                        <line x1="8" y1="11" x2="10" y2="11"></line>
+                        <line x1="14" y1="11" x2="16" y2="11"></line>
+                        <line x1="8" y1="15" x2="10" y2="15"></line>
+                        <line x1="14" y1="15" x2="16" y2="15"></line>
+                      </svg>
+                    </div>
+                    <svg class="bento-doodle-spark doodle-spark-br" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kj-primary)" stroke-width="2.5"><path d="M12 18v4M18 12h4M16.24 16.24l2.83 2.83"></path></svg>
+                  </div>
+                </div>
+                <div class="bento-card-content">
+                  <h3 class="bento-card-title">Precision Tile Calculator</h3>
+                  <p class="bento-card-desc">
+                    Calculate exact tile count, box volume, and recommended 10% wastage reserve for your room dimensions in seconds.
+                  </p>
+                  <span class="bento-action-link bento-link-primary">Calculate Tiles →</span>
+                </div>
+              </div>
+
+              <!-- Card 2.2: AI Tile Quiz & Interactive Segmented Switcher -->
+              <div class="bento-card bento-card-tinted bento-card-gold" id="bento-quiz-card">
+                <div class="bento-switcher-header">
+                  <div class="bento-segmented-pill" role="tablist">
+                    <button class="bento-seg-btn active" data-space="bathroom" type="button">Bathroom</button>
+                    <button class="bento-seg-btn" data-space="living" type="button">Living</button>
+                    <button class="bento-seg-btn" data-space="kitchen" type="button">Kitchen</button>
+                  </div>
+                  <div class="bento-seg-spark">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kj-gold)" stroke-width="2.5"><path d="M12 2v6M2 12h6M16 12h6M12 16v6"></path></svg>
+                  </div>
+                </div>
+                <div class="bento-card-content">
+                  <div class="bento-dynamic-preview" id="bento-quiz-preview">
+                    <span class="bento-preview-tag">R10 Anti-Skid · Slabs & Wall Vitrified</span>
+                  </div>
+                  <h3 class="bento-card-title">AI Tile Quiz & Matcher</h3>
+                  <p class="bento-card-desc bento-quiz-desc">
+                    Answer a few quick lifestyle questions to receive custom bathroom palettes, slip safety specs, and wet-area pairings.
+                  </p>
+                  <button class="bento-action-link bento-link-gold tool-home-trigger" data-tool="tile-quiz" type="button">
+                    Take Tile Quiz →
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- COLUMN 3: SHOWROOM & 3D VISUALISER -->
+            <div class="bento-col bento-col-3">
+              <!-- Card 3.1: Virtual Showroom Tour -->
+              <div class="bento-card bento-card-tinted bento-card-slate tool-home-trigger" data-tool="virtual-showroom" role="button" tabindex="0">
+                <div class="bento-graphic-header bento-graphic-360">
+                  <div class="bento-360-badge">
+                    <svg class="bento-orbit-ring" width="56" height="56" viewBox="0 0 48 48" fill="none" stroke="var(--kj-primary)" stroke-width="2">
+                      <ellipse cx="24" cy="24" rx="20" ry="10" transform="rotate(-20 24 24)"></ellipse>
+                      <circle cx="24" cy="24" r="4" fill="var(--kj-primary)"></circle>
+                    </svg>
+                    <span class="bento-360-val">360°</span>
+                  </div>
+                </div>
+                <div class="bento-card-content">
+                  <h3 class="bento-card-title">Virtual Showroom Tour</h3>
+                  <p class="bento-card-desc">
+                    Walk through our 20,000 sq.ft Kajaria Galaxy experience centre from home with high-definition panoramic navigation.
+                  </p>
+                  <span class="bento-action-link bento-link-primary">Start Walkthrough →</span>
+                </div>
+              </div>
+
+              <!-- Card 3.2: 3D Tile Visualiser Photo Card -->
+              <div class="bento-card bento-card-photo bento-card-3d tool-home-trigger" data-tool="3d-visualiser" role="button" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="3D Tile Visualiser" class="bento-photo-img" />
+                <div class="bento-photo-overlay"></div>
+                <div class="bento-pill-badge bento-pill-top">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                  <span>360° Panoramic Visualiser</span>
+                </div>
+                <div class="bento-card-content bento-content-bottom">
+                  <h3 class="bento-card-title bento-title-light">3D Tile Visualiser</h3>
+                  <p class="bento-card-desc bento-desc-light">
+                    Explore virtual rooms with dynamic grout colors, lighting conditions, and multi-surface slab mixing.
+                  </p>
+                  <span class="bento-action-link bento-link-light">Explore 3D Rooms →</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -656,21 +789,75 @@ export function renderHomeView(container) {
       updatePagination(currentX);
     }
 
-    // Tools triggers
-    container.querySelectorAll('.tool-home-trigger').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const tool = btn.dataset.tool;
+    // Tools Bento Triggers & Interactive Segmented Switcher
+    container.querySelectorAll('.tool-home-trigger').forEach(trigger => {
+      const handleTrigger = (e) => {
+        // If clicking a sub-button inside this trigger, let the sub-button handle it
+        if (e.target !== trigger && e.target.closest('.tool-home-trigger') && e.target.closest('.tool-home-trigger') !== trigger) {
+          return;
+        }
+        const tool = trigger.dataset.tool;
         if (tool === 'tile-quiz') {
           window.location.hash = '#tile-quiz';
         } else if (tool === 'tile-calculator') {
           store.setModal('calculator', true);
-        } else if (tool === '3d-visualiser' || tool === 'view-in-room') {
+        } else if (tool === '3d-visualiser' || tool === 'view-in-room' || tool === 'virtual-showroom') {
           store.setModal('visualiser', true);
-        } else if (tool === 'virtual-showroom') {
-          alert('🏛️ Virtual Showroom: Opening 360° virtual tour.');
+        } else if (tool === 'where-to-buy') {
+          window.location.hash = '#where-to-buy';
+        } else if (tool === 'enquiry-advisory') {
+          store.setModal('enquiry', true, { source: 'Senior Design Advisory' });
+        }
+      };
+
+      trigger.addEventListener('click', handleTrigger);
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleTrigger(e);
         }
       });
     });
+
+    // Bento Quiz Interactive Switcher
+    const quizCard = container.querySelector('#bento-quiz-card');
+    if (quizCard) {
+      const segButtons = quizCard.querySelectorAll('.bento-seg-btn');
+      const previewEl = quizCard.querySelector('#bento-quiz-preview');
+      const descEl = quizCard.querySelector('.bento-quiz-desc');
+
+      const spaceData = {
+        bathroom: {
+          tag: 'R10 Anti-Skid · Slabs & Wall Vitrified',
+          desc: 'Answer a few quick lifestyle questions to receive custom bathroom palettes, slip safety specs, and wet-area pairings.'
+        },
+        living: {
+          tag: '120x240 cm · High Gloss & Satin Porcelain',
+          desc: 'Match your lighting and interior aesthetic with grand seamless vitrified slabs and bookmatched feature walls.'
+        },
+        kitchen: {
+          tag: 'Stain & Heat Resistant · Full Body Countertop',
+          desc: 'Discover heavy-duty Vitronite slabs engineered for zero water absorption, knife scratch resistance, and easy cleaning.'
+        }
+      };
+
+      segButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          segButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const space = btn.dataset.space;
+          if (spaceData[space]) {
+            if (previewEl) {
+              previewEl.innerHTML = `<span class="bento-preview-tag">${spaceData[space].tag}</span>`;
+            }
+            if (descEl) {
+              descEl.textContent = spaceData[space].desc;
+            }
+          }
+        });
+      });
+    }
 
     startAutoSlide();
   }
