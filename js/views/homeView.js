@@ -1,5 +1,5 @@
 // Homepage View (Translating Slide 15, 16, 30, 31, 32, 33)
-import { SPACES, TOOLS_LIST, PRODUCTS } from '../data.js';
+import { SPACES, FINISHES, TOOLS_LIST, PRODUCTS } from '../data.js';
 import { store } from '../store.js';
 
 const HERO_SLIDES = [
@@ -43,6 +43,7 @@ const HERO_SLIDES = [
 
 export function renderHomeView(container) {
   let activeTab = 'spaces'; // 'spaces' | 'finishes' | 'colours'
+  let showAllFinishes = false;
   let currentSlide = 0;
   let sliderTimer = null;
 
@@ -290,28 +291,37 @@ export function renderHomeView(container) {
         </div>
       `;
     } else if (tab === 'finishes') {
-      const finishes = [
-        { name: 'Glossy & Polished', desc: 'Reflective mirror elegance that amplifies light', img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=400&q=80' },
-        { name: 'Natural Matt', desc: 'Tactile, non-reflective surfaces that hide smudges', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80' },
-        { name: 'Riverwash Silk', desc: 'Subtle soft-touch satin finish for barefoot luxury', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400&q=80' },
-        { name: 'Carved & Relief', desc: 'Three-dimensional micro-textures with depth', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=400&q=80' }
-      ];
+      const visibleFinishes = showAllFinishes ? FINISHES : FINISHES.slice(0, 40);
       return `
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 36px;">
-          ${finishes.map(f => `
-            <div class="space-card-home" onclick="window.location.hash='#products'">
-              <div class="space-card-img-wrap">
-                <img src="${f.img}" alt="${f.name}" class="space-card-img" />
+        <div class="finishes-toolbar" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--kj-border-subtle); flex-wrap: wrap; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--kj-text-heading); text-transform: uppercase;">
+              50+ Specialized Surface Finishes
+            </span>
+            <span style="font-size: 0.72rem; background: var(--kj-surface-stone); color: var(--kj-primary); padding: 3px 9px; font-weight: 700;">
+              ${visibleFinishes.length} of ${FINISHES.length} Shown (${showAllFinishes ? '5 Rows × 10' : '4 Rows × 10'})
+            </span>
+          </div>
+          <button id="btn-toggle-finishes" class="btn btn-outline btn-sm" style="font-size: 0.75rem; padding: 6px 14px; text-transform: uppercase;">
+            ${showAllFinishes ? 'Show 4 Rows (40 Finishes) ↑' : 'View All 50+ Finishes (Row 5) ↓'}
+          </button>
+        </div>
+
+        <div class="finishes-grid">
+          ${visibleFinishes.map(f => `
+            <div class="finish-card-home" data-finish-id="${f.id}" data-finish-name="${f.name}" role="button" tabindex="0" title="${f.name} · Kajaria ${f.group} Finish" aria-label="Explore ${f.name} finish tiles">
+              <div class="finish-card-thumb-wrap">
+                <img src="${f.img}" alt="${f.name}" class="finish-card-img" loading="lazy" />
               </div>
-              <div class="space-card-footer">
-                <div>
-                  <span class="space-card-title">${f.name}</span>
-                  <p style="font-size: 0.72rem; color: var(--kj-text-muted);">${f.desc}</p>
-                </div>
-                <span class="space-card-arrow">→</span>
-              </div>
+              <span class="finish-card-title">${f.name}</span>
             </div>
           `).join('')}
+        </div>
+
+        <div style="text-align: center; margin-top: 12px;">
+          <a href="#products" class="btn btn-outline btn-lg" style="text-transform: uppercase; font-size: 0.88rem;">
+            Explore All Finishes in Catalogue →
+          </a>
         </div>
       `;
     } else {
@@ -459,6 +469,29 @@ export function renderHomeView(container) {
           store.setActiveSpace(spaceId);
           window.location.hash = `#products?space=${spaceId}`;
         }
+      };
+      card.addEventListener('click', handleSelect);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleSelect();
+        }
+      });
+    });
+
+    // Finishes toggle (4 rows vs 5 rows)
+    const toggleFinishesBtn = container.querySelector('#btn-toggle-finishes');
+    if (toggleFinishesBtn) {
+      toggleFinishesBtn.addEventListener('click', () => {
+        showAllFinishes = !showAllFinishes;
+        render();
+      });
+    }
+
+    // Finishes card navigation
+    container.querySelectorAll('.finish-card-home').forEach(card => {
+      const handleSelect = () => {
+        window.location.hash = '#products';
       };
       card.addEventListener('click', handleSelect);
       card.addEventListener('keydown', (e) => {

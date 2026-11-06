@@ -394,6 +394,86 @@
   color: var(--kj-primary);
 }
 
+/* ==========================================================================
+   Finishes Grid - 10 Columns in a Row, 4 Rows (Expandable to 50+)
+   ========================================================================== */
+.finishes-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 16px 10px;
+  margin-bottom: 32px;
+}
+
+.finish-card-home {
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+  text-decoration: none;
+  padding: 0;
+  position: relative;
+  user-select: none;
+}
+
+.finish-card-home:hover {
+  transform: translateY(-4px);
+}
+
+.finish-card-home:focus-visible {
+  outline: 2px solid var(--kj-primary);
+  outline-offset: 3px;
+}
+
+.finish-card-thumb-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0;
+  background-color: var(--kj-surface-stone);
+  box-shadow: 0 1px 4px rgba(8, 32, 56, 0.08);
+  transition: box-shadow var(--transition-fast);
+}
+
+.finish-card-home:hover .finish-card-thumb-wrap {
+  box-shadow: 0 6px 16px rgba(8, 32, 56, 0.18);
+}
+
+.finish-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.finish-card-home:hover .finish-card-img {
+  transform: scale(1.1);
+}
+
+.finish-card-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--kj-text-heading);
+  text-align: center;
+  margin-top: 8px;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+  max-width: 100%;
+  transition: color var(--transition-fast);
+}
+
+.finish-card-home:hover .finish-card-title {
+  color: var(--kj-primary);
+}
+
 /* Unified Tools Hub (Slide 30) */
 .tools-hub-section {
   padding: 80px 0;
@@ -1141,6 +1221,11 @@
     gap: 12px;
   }
 
+  .finishes-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px 8px;
+  }
+
   .tools-hub-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1170,6 +1255,15 @@
   .spaces-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
+  }
+
+  .finishes-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 6px;
+  }
+
+  .finish-card-title {
+    font-size: 0.68rem;
   }
 
   .tools-hub-grid {
