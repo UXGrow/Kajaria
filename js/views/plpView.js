@@ -18,8 +18,10 @@ export function renderPLPView(container, params) {
           <span class="space-nav-label">Explore by Space</span>
           <div class="space-nav-scroll">
             ${SPACES.map(s => `
-              <div class="space-nav-item ${s.id === currentSpaceId ? 'active' : ''}" data-space-id="${s.id}">
-                <img src="${s.thumb}" alt="${s.name}" class="space-nav-thumb" />
+              <div class="space-nav-item ${s.id === currentSpaceId ? 'active' : ''}" data-space-id="${s.id}" role="button" tabindex="0" aria-label="${s.name}">
+                <div class="space-nav-thumb-wrap">
+                  <img src="${s.thumb}" alt="${s.name}" class="space-nav-thumb" loading="lazy" />
+                </div>
                 <span class="space-nav-title">${s.name}</span>
               </div>
             `).join('')}
