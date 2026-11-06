@@ -85,65 +85,53 @@ export const SPACES = [
 ];
 
 export const FINISHES = [
-  // ROW 1 (10 Items)
-  { id: 'alpha-tech', name: 'Alpha Tech', group: 'Technical', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'baby-polish', name: 'Baby Polish', group: 'Polished', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'baby-polished', name: 'Baby Polished', group: 'Polished', img: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'beyond', name: 'Beyond', group: 'Signature', img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'blend', name: 'Blend', group: 'Natural', img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'bliss', name: 'Bliss', group: 'Matt', img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'bold', name: 'Bold', group: 'Dramatic', img: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'brilliant-white-polish', name: 'Brilliant White Polish', group: 'Polished', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'bush-hammered', name: 'Bush Hammered', group: 'Tactile', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'carving', name: 'Carving', group: 'Carved', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=260&h=260&q=80' },
+  // ROW 1 (6 Items)
+  { id: 'alpha-tech', name: 'Alpha Tech', group: 'Technical', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'baby-polish', name: 'Baby Polish', group: 'Polished', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'beyond', name: 'Beyond', group: 'Signature', img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'blend', name: 'Blend', group: 'Natural', img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'bush-hammered', name: 'Bush Hammered', group: 'Tactile', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'carving', name: 'Carving', group: 'Carved', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=300&h=300&q=80' },
 
-  // ROW 2 (10 Items)
-  { id: 'crystal-gloss', name: 'Crystal Gloss', group: 'Glossy', img: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'dead-matt', name: 'Dead-Matt', group: 'Matt', img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=260&h=260&q=80' },
+  // ROW 2 (6 Items)
+  { id: 'crystal-gloss', name: 'Crystal Gloss', group: 'Glossy', img: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'dead-matt', name: 'Dead-Matt', group: 'Matt', img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=300&h=300&q=80' },
   { id: 'decor', name: 'Decor', group: 'Artistic', img: 'assets/images/quiz/tile-green-octagon.jpg' },
-  { id: 'decor-matt', name: 'Decor Matt', group: 'Artistic', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'decor-polish', name: 'Decor Polish', group: 'Polished', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'decor-series', name: 'Decor Series', group: 'Artistic', img: 'assets/images/quiz/tile-terracotta-patio.jpg' },
-  { id: 'decor-sparkle', name: 'Decor Sparkle', group: 'Specialty', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'dg-m-tech', name: 'DG M Tech', group: 'Technical', img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'dg-matt-carving', name: 'DG Matt with Carving', group: 'Carved', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'digi-matt', name: 'Digi-Matt', group: 'Matt', img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=260&h=260&q=80' },
+  { id: 'decor-sparkle', name: 'Decor Sparkle', group: 'Specialty', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'dg-m-tech', name: 'DG M Tech', group: 'Technical', img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'dg-matt-carving', name: 'DG Matt with Carving', group: 'Carved', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=300&h=300&q=80' },
 
-  // ROW 3 (10 Items)
-  { id: 'digital-full-body', name: 'Digital Full Body', group: 'Technical', img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'digital-matt', name: 'Digital Matt', group: 'Matt', img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'double-charge', name: 'Double Charge', group: 'Heavy Duty', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'dry-granula', name: 'Dry Granula', group: 'Tactile', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'dry-granula-polish', name: 'Dry Granula Polish', group: 'Polished', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'emboss-matt', name: 'Emboss Matt', group: 'Tactile', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'glaze-high-resistance', name: 'Glaze High Resistance', group: 'Technical', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'glitz-matt', name: 'Glitz Matt', group: 'Specialty', img: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'gloss-matt', name: 'Gloss Matt', group: 'Satin', img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'glossy', name: 'Glossy', group: 'Glossy', img: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=260&h=260&q=80' },
+  // ROW 3 (6 Items)
+  { id: 'digital-full-body', name: 'Digital Full Body', group: 'Technical', img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'digital-matt', name: 'Digital Matt', group: 'Matt', img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'double-charge', name: 'Double Charge', group: 'Heavy Duty', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'dry-granula', name: 'Dry Granula', group: 'Tactile', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'emboss-matt', name: 'Emboss Matt', group: 'Tactile', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'glaze-high-resistance', name: 'Glaze High Resistance', group: 'Technical', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=300&h=300&q=80' },
 
-  // ROW 4 (10 Items)
-  { id: 'grit-matt', name: 'Grit Matt', group: 'Anti-Skid', img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'gvt-premium-matt', name: 'GVT Premium Matt', group: 'Matt', img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'hard-matt', name: 'Hard Matt', group: 'Heavy Duty', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'hd-matt', name: 'HD Matt', group: 'Matt', img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'hd-polished', name: 'HD Polished', group: 'Polished', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'hd-polished-decor', name: 'HD Polished Decor', group: 'Artistic', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'hi-gloss', name: 'HI-Gloss', group: 'Glossy', img: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'hi-gloss-polished', name: 'HI-Gloss Polished', group: 'Glossy', img: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'riverwash-silk', name: 'Riverwash Silk', group: 'Satin', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'natural-matt', name: 'Natural Matt', group: 'Matt', img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=260&h=260&q=80' },
+  // ROW 4 (6 Items)
+  { id: 'glitz-matt', name: 'Glitz Matt', group: 'Specialty', img: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'gloss-matt', name: 'Gloss Matt', group: 'Satin', img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'glossy', name: 'Glossy', group: 'Glossy', img: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'grit-matt', name: 'Grit Matt', group: 'Anti-Skid', img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'gvt-premium-matt', name: 'GVT Premium Matt', group: 'Matt', img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'hard-matt', name: 'Hard Matt', group: 'Heavy Duty', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&h=300&q=80' },
 
-  // ROW 5 (10 Items to complete 50 finishes)
-  { id: 'rustic-relief', name: 'Rustic Relief', group: 'Tactile', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'satin-silk', name: 'Satin Silk', group: 'Satin', img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'sugar-finish', name: 'Sugar Finish', group: 'Specialty', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'rocker-antique', name: 'Rocker Antique', group: 'Rustic', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'full-body-vitrified', name: 'Full Body Vitrified', group: 'Technical', img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'lappato', name: 'Lappato', group: 'Semi-Polished', img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'metallic-luster', name: 'Metallic Luster', group: 'Specialty', img: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'anti-skid-r11', name: 'Anti-Skid R11', group: 'Anti-Skid', img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'high-def-mirror', name: 'High Def Mirror', group: 'Polished', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=260&h=260&q=80' },
-  { id: 'velvet-touch', name: 'Velvet Touch', group: 'Matt', img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=260&h=260&q=80' }
+  // ROW 5 (6 Items)
+  { id: 'hd-matt', name: 'HD Matt', group: 'Matt', img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'hd-polished', name: 'HD Polished', group: 'Polished', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'hi-gloss', name: 'HI-Gloss', group: 'Glossy', img: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'hi-gloss-polished', name: 'HI-Gloss Polished', group: 'Glossy', img: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'riverwash-silk', name: 'Riverwash Silk', group: 'Satin', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'natural-matt', name: 'Natural Matt', group: 'Matt', img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=300&h=300&q=80' },
+
+  // ROW 6 (6 Items)
+  { id: 'rustic-relief', name: 'Rustic Relief', group: 'Tactile', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'satin-silk', name: 'Satin Silk', group: 'Satin', img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'sugar-finish', name: 'Sugar Finish', group: 'Specialty', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'lappato', name: 'Lappato', group: 'Semi-Polished', img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'anti-skid-r11', name: 'Anti-Skid R11', group: 'Anti-Skid', img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=300&h=300&q=80' },
+  { id: 'velvet-touch', name: 'Velvet Touch', group: 'Matt', img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=300&h=300&q=80' }
 ];
 
 export const PRODUCTS = [

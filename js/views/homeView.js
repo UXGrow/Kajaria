@@ -43,7 +43,6 @@ const HERO_SLIDES = [
 
 export function renderHomeView(container) {
   let activeTab = 'spaces'; // 'spaces' | 'finishes' | 'colours'
-  let showAllFinishes = false;
   let currentSlide = 0;
   let sliderTimer = null;
 
@@ -291,24 +290,9 @@ export function renderHomeView(container) {
         </div>
       `;
     } else if (tab === 'finishes') {
-      const visibleFinishes = showAllFinishes ? FINISHES : FINISHES.slice(0, 40);
       return `
-        <div class="finishes-toolbar" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--kj-border-subtle); flex-wrap: wrap; gap: 10px;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span style="font-size: 0.85rem; font-weight: 700; color: var(--kj-text-heading); text-transform: uppercase;">
-              50+ Specialized Surface Finishes
-            </span>
-            <span style="font-size: 0.72rem; background: var(--kj-surface-stone); color: var(--kj-primary); padding: 3px 9px; font-weight: 700;">
-              ${visibleFinishes.length} of ${FINISHES.length} Shown (${showAllFinishes ? '5 Rows × 10' : '4 Rows × 10'})
-            </span>
-          </div>
-          <button id="btn-toggle-finishes" class="btn btn-outline btn-sm" style="font-size: 0.75rem; padding: 6px 14px; text-transform: uppercase;">
-            ${showAllFinishes ? 'Show 4 Rows (40 Finishes) ↑' : 'View All 50+ Finishes (Row 5) ↓'}
-          </button>
-        </div>
-
         <div class="finishes-grid">
-          ${visibleFinishes.map(f => `
+          ${FINISHES.slice(0, 36).map(f => `
             <div class="finish-card-home" data-finish-id="${f.id}" data-finish-name="${f.name}" role="button" tabindex="0" title="${f.name} · Kajaria ${f.group} Finish" aria-label="Explore ${f.name} finish tiles">
               <div class="finish-card-thumb-wrap">
                 <img src="${f.img}" alt="${f.name}" class="finish-card-img" loading="lazy" />
@@ -318,7 +302,7 @@ export function renderHomeView(container) {
           `).join('')}
         </div>
 
-        <div style="text-align: center; margin-top: 12px;">
+        <div style="text-align: center; margin-top: 16px;">
           <a href="#products" class="btn btn-outline btn-lg" style="text-transform: uppercase; font-size: 0.88rem;">
             Explore All Finishes in Catalogue →
           </a>
@@ -478,15 +462,6 @@ export function renderHomeView(container) {
         }
       });
     });
-
-    // Finishes toggle (4 rows vs 5 rows)
-    const toggleFinishesBtn = container.querySelector('#btn-toggle-finishes');
-    if (toggleFinishesBtn) {
-      toggleFinishesBtn.addEventListener('click', () => {
-        showAllFinishes = !showAllFinishes;
-        render();
-      });
-    }
 
     // Finishes card navigation
     container.querySelectorAll('.finish-card-home').forEach(card => {

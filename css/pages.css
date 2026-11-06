@@ -395,13 +395,13 @@
 }
 
 /* ==========================================================================
-   Finishes Grid - 10 Columns in a Row, 4 Rows (Expandable to 50+)
+   Finishes Grid - 6x6 Layout (36 Curated Kajaria Finishes)
    ========================================================================== */
 .finishes-grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 16px 10px;
-  margin-bottom: 32px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px 14px;
+  margin-bottom: 36px;
 }
 
 .finish-card-home {
@@ -451,15 +451,16 @@
 }
 
 .finish-card-home:hover .finish-card-img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .finish-card-title {
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
   color: var(--kj-text-heading);
   text-align: center;
-  margin-top: 8px;
+  margin-top: 10px;
   line-height: 1.25;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -1222,8 +1223,8 @@
   }
 
   .finishes-grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 12px 8px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px 10px;
   }
 
   .tools-hub-grid {
@@ -1258,12 +1259,12 @@
   }
 
   .finishes-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px 6px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 8px;
   }
 
   .finish-card-title {
-    font-size: 0.68rem;
+    font-size: 0.72rem;
   }
 
   .tools-hub-grid {
