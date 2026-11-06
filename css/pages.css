@@ -475,6 +475,70 @@
   color: var(--kj-primary);
 }
 
+/* ==========================================================================
+   Colours Grid - 7x2 Layout (14 Signature Kajaria Colours)
+   ========================================================================== */
+.colors-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 14px 12px;
+  margin-bottom: 36px;
+}
+
+.color-card-home {
+  background: var(--kj-surface);
+  border-radius: 0;
+  border: none;
+  padding: 20px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 145px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  user-select: none;
+  box-shadow: 0 1px 3px rgba(8, 32, 56, 0.04);
+}
+
+.color-card-home:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(8, 32, 56, 0.1);
+}
+
+.color-card-home:focus-visible {
+  outline: 2px solid var(--kj-primary);
+  outline-offset: 3px;
+}
+
+.color-swatch-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: transform var(--transition-fast);
+}
+
+.color-card-home:hover .color-swatch-circle {
+  transform: scale(1.1);
+}
+
+.color-card-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--kj-text-heading);
+  line-height: 1.2;
+}
+
+.color-card-count {
+  font-size: 0.72rem;
+  color: var(--kj-text-muted);
+  margin-top: 4px;
+}
+
 /* Unified Tools Hub (Slide 30) */
 .tools-hub-section {
   padding: 80px 0;
@@ -1227,6 +1291,11 @@
     gap: 14px 10px;
   }
 
+  .colors-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px 10px;
+  }
+
   .tools-hub-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1261,6 +1330,15 @@
   .finishes-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px 8px;
+  }
+
+  .colors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 8px;
+  }
+
+  .color-card-title {
+    font-size: 0.75rem;
   }
 
   .finish-card-title {

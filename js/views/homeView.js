@@ -1,5 +1,5 @@
 // Homepage View (Translating Slide 15, 16, 30, 31, 32, 33)
-import { SPACES, FINISHES, TOOLS_LIST, PRODUCTS } from '../data.js';
+import { SPACES, FINISHES, COLORS, TOOLS_LIST, PRODUCTS } from '../data.js';
 import { store } from '../store.js';
 
 const HERO_SLIDES = [
@@ -292,7 +292,7 @@ export function renderHomeView(container) {
     } else if (tab === 'finishes') {
       return `
         <div class="finishes-grid">
-          ${FINISHES.slice(0, 36).map(f => `
+          ${FINISHES.map(f => `
             <div class="finish-card-home" data-finish-id="${f.id}" data-finish-name="${f.name}" role="button" tabindex="0" title="${f.name} · Kajaria ${f.group} Finish" aria-label="Explore ${f.name} finish tiles">
               <div class="finish-card-thumb-wrap">
                 <img src="${f.img}" alt="${f.name}" class="finish-card-img" loading="lazy" />
@@ -309,22 +309,21 @@ export function renderHomeView(container) {
         </div>
       `;
     } else {
-      const colors = [
-        { name: 'Pure White & Statuario', count: '124 designs', hex: '#FFFFFF', border: '#cbd5e1' },
-        { name: 'Warm Cream & Beige', count: '98 designs', hex: '#E8DCC4' },
-        { name: 'Architectural Grey', count: '112 designs', hex: '#9CA3AF' },
-        { name: 'Dramatic Noir & Black', count: '64 designs', hex: '#1F2937' },
-        { name: 'Earthy Walnut & Brown', count: '76 designs', hex: '#8B5A2B' }
-      ];
       return `
-        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 36px;">
-          ${colors.map(c => `
-            <div class="space-card-home" onclick="window.location.hash='#products'" style="padding: 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px;">
-              <div style="width: 48px; height: 48px; border-radius: 50%; background-color: ${c.hex}; ${c.border ? `border: 2px solid ${c.border};` : 'border: 1px solid rgba(0,0,0,0.1);'} margin-bottom: 12px; box-shadow: var(--shadow-sm);"></div>
-              <span style="font-weight: 700; font-size: 0.88rem; color: var(--kj-text-heading);">${c.name}</span>
-              <span style="font-size: 0.75rem; color: var(--kj-text-muted); margin-top: 4px;">${c.count}</span>
+        <div class="colors-grid">
+          ${COLORS.map(c => `
+            <div class="color-card-home" data-color-id="${c.id}" role="button" tabindex="0" aria-label="Explore ${c.name} tiles">
+              <div class="color-swatch-circle" style="background: ${c.gradient || c.hex}; ${c.border ? `border: 2px solid ${c.border};` : ''}"></div>
+              <span class="color-card-title">${c.name}</span>
+              <span class="color-card-count">${c.count}</span>
             </div>
           `).join('')}
+        </div>
+
+        <div style="text-align: center; margin-top: 16px;">
+          <a href="#products" class="btn btn-outline btn-lg" style="text-transform: uppercase; font-size: 0.88rem;">
+            Explore All Colours in Catalogue →
+          </a>
         </div>
       `;
     }
@@ -467,6 +466,21 @@ export function renderHomeView(container) {
     container.querySelectorAll('.finish-card-home').forEach(card => {
       const handleSelect = () => {
         window.location.hash = '#products';
+      };
+      card.addEventListener('click', handleSelect);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleSelect();
+        }
+      });
+    });
+
+    // Colours card navigation
+    container.querySelectorAll('.color-card-home').forEach(card => {
+      const handleSelect = () => {
+        const colorId = card.dataset.colorId;
+        window.location.hash = colorId ? `#products?color=${colorId}` : '#products';
       };
       card.addEventListener('click', handleSelect);
       card.addEventListener('keydown', (e) => {
